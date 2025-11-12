@@ -9,11 +9,8 @@
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
-  <!-- AOS (Animate On Scroll) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
-
-  <!-- Glassmorphism Base + App Styles -->
   <style>
     :root {
       --bg-light: #edf1f7;
@@ -22,60 +19,30 @@
       --secondary-color: #182848;
       --glass-bg: rgba(255, 255, 255, 0.45);
       --glass-border: rgba(255, 255, 255, 0.45);
-      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(135deg, #eef2ff 0%, #e6f0ff 100%);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eef2ff, #e6f0ff);
       color: var(--text-dark);
       overflow-x: hidden;
     }
 
-    /* ======= Preloader ======= */
-    #preloader {
-      position: fixed; inset: 0;
-      background: linear-gradient(135deg, #a8c0ff, #e6e6fa);
-      display: grid; place-items: center;
-      z-index: 2000;
-    }
-    .loader {
-      width: 64px; height: 64px; border-radius: 50%;
-      border: 6px solid rgba(255,255,255,0.5);
-      border-top-color: #fff;
-      animation: spin 1s linear infinite;
-      box-shadow: var(--shadow);
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ======= Scroll Progress Bar ======= */
-    #scrollProgress {
-      position: fixed; top: 0; left: 0; height: 4px; width: 0%;
-      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-      z-index: 1500;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
-    /* ======= Glass Navbar ======= */
+    /* ===== Navbar ===== */
     .navbar {
       background: var(--glass-bg);
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--glass-border);
       box-shadow: var(--shadow);
     }
 
-    /* ======= Hero ======= */
+    /* ===== Hero ===== */
     #home {
       min-height: 100vh;
       display: flex;
       align-items: center;
       padding-top: 90px;
-      background: radial-gradient(1200px 600px at 100% -20%, rgba(75,108,183,0.18), transparent 60%),
-                  radial-gradient(1200px 600px at -20% 100%, rgba(24,40,72,0.18), transparent 60%);
     }
 
     #home .glass-panel {
@@ -91,156 +58,135 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
     }
 
-    .sticky-profile {
-      position: sticky;
-      top: 110px;
+    /* ===== About + Skills ===== */
+    #about {
+      padding: 80px 0;
     }
 
-    /* ======= Sections & Cards ======= */
-    section { padding: 70px 0; }
+    .skill-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
 
     .skill-bar {
       height: 8px;
-      background: rgba(0,0,0,0.08);
-      border-radius: 8px;
+      background: #e5e5e5;
+      border-radius: 20px;
       overflow: hidden;
-      backdrop-filter: blur(2px);
+      margin-top: 8px;
     }
 
     .skill-progress {
       height: 100%;
-      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
       width: 0;
-      transition: width 1.2s ease;
+      background: linear-gradient(90deg, #007bff, #00d4ff);
+      border-radius: 20px;
+      transition: width 1.5s ease;
     }
 
-    .project-card, .glass-card {
+    /* ===== Projects ===== */
+    #projects {
+      padding: 80px 0;
+    }
+
+    .project-card {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       border-radius: 18px;
       box-shadow: var(--shadow);
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .project-card:hover, .glass-card:hover {
+
+    .project-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 44px rgba(0,0,0,0.12);
-      border-color: rgba(255,255,255,0.75);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
     }
 
-    .fade-in { opacity: 0; transform: translateY(20px); transition: all .8s ease-out; }
-    .fade-in.show { opacity: 1; transform: translateY(0); }
-
-    /* ======= Footer ======= */
-    footer {
-      text-align: center; padding: 18px 12px; color: #475569;
+    .project-card img {
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      height: 200px;
+      object-fit: cover;
     }
 
-    /* ======= Dark Mode (optional toggle kept) ======= */
-    body.dark-mode {
-      background: radial-gradient(800px 400px at 120% -10%, #0d1222 0%, #0b0f1c 60%, #090d18 100%);
-      color: #eaeef7;
-    }
-    body.dark-mode .navbar,
-    body.dark-mode .project-card,
-    body.dark-mode .glass-card,
-    body.dark-mode #home .glass-panel {
-      background: rgba(15, 17, 27, 0.5);
-      border-color: rgba(255,255,255,0.08);
-    }
-
-    /* ======= Floating WhatsApp Button ======= */
-    .fab-whatsapp {
-      position: fixed; right: 18px; bottom: 90px;
-      width: 56px; height: 56px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: #25D366; color: #fff; font-size: 26px;
-      box-shadow: 0 14px 30px rgba(37,211,102,0.35);
-      z-index: 1400; text-decoration: none;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .fab-whatsapp:hover { transform: translateY(-3px) scale(1.03); }
-
-    /* ======= Sticky Bottom Mobile Nav ======= */
-    .bottom-nav {
-      position: fixed; left: 50%; transform: translateX(-50%);
-      bottom: 8px; z-index: 1300;
-      width: calc(100% - 16px);
-      max-width: 520px;
+    /* ===== Contact ===== */
+    #contact form {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       border-radius: 16px;
+      padding: 24px;
       box-shadow: var(--shadow);
-      padding: 8px 10px;
-      display: none; /* shown on mobile via media query */
-    }
-    .bottom-nav a {
-      flex: 1; text-align: center; color: inherit; text-decoration: none;
-      padding: 8px 0; border-radius: 10px; font-size: 12px;
-    }
-    .bottom-nav a i { display: block; font-size: 18px; }
-    .bottom-nav a.active {
-      background: rgba(75,108,183,0.12);
-      border: 1px solid rgba(75,108,183,0.28);
     }
 
-    /* ======= Dark Mode Toggle (kept) ======= */
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 18px;
+      color: #475569;
+    }
+
+    /* ===== WhatsApp ===== */
+    .fab-whatsapp {
+      position: fixed;
+      right: 18px;
+      bottom: 90px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25D366;
+      color: #fff;
+      font-size: 26px;
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.35);
+      z-index: 1400;
+      text-decoration: none;
+    }
+
+    /* ===== Dark Mode ===== */
+    body.dark-mode {
+      background: radial-gradient(800px 400px at 120% -10%, #0d1222, #090d18);
+      color: #eaeef7;
+    }
+
+    body.dark-mode .navbar,
+    body.dark-mode #contact form,
+    body.dark-mode .skill-card,
+    body.dark-mode .project-card {
+      background: rgba(15, 17, 27, 0.5);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
     #darkModeToggle {
-      position: fixed; right: 18px; bottom: 18px;
-      background: var(--secondary-color); color: white;
-      border: none; border-radius: 50%;
-      width: 45px; height: 45px; font-size: 20px;
-      cursor: pointer; z-index: 1400;
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: var(--secondary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1400;
       box-shadow: var(--shadow);
-    }
-    #darkModeToggle:hover { opacity: .95; }
-
-    /* ======= Mobile Perfect Tweaks ======= */
-    @media (max-width: 992px) {
-      #home { text-align: center; padding-top: 120px; }
-      .sticky-profile { position: static !important; margin-bottom: 20px; }
-      #home img { width: 200px !important; height: 200px !important; object-fit: cover; }
-      .navbar-collapse {
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        border-radius: 14px;
-        padding: 10px;
-        margin-top: 6px;
-      }
-      body.dark-mode .navbar-collapse { background: rgba(15, 17, 27, 0.6); }
-    }
-    @media (max-width: 768px) {
-      .project-card { margin: auto; width: 92%; }
-      .bottom-nav { display: flex; gap: 6px; }
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 26px !important; }
-      h2 { font-size: 22px !important; }
-      h4 { font-size: 18px !important; }
-      p  { font-size: 15px !important; }
-      #home { padding-top: 130px; }
-    }
-    @media (max-width: 420px) {
-      .skill-box { animation: none !important; opacity: 1 !important; transform: none !important; }
-      .skill-progress { transition: none; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Preloader -->
-  <div id="preloader" aria-hidden="true">
-    <div class="loader" title="Loading..."></div>
-  </div>
-
-  <!-- Scroll Progress Bar -->
-  <div id="scrollProgress"></div>
-
-  <!-- Navbar -->
+  <!-- ===== Navbar ===== -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#home">Jarshin J S</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -254,331 +200,220 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section id="home">
-    <div class="container h-100">
-      <div class="row align-items-start justify-content-center h-100">
-        <div class="col-md-4 mb-4" data-aos="zoom-in">
-          <div class="sticky-profile glass-panel text-center">
-            <img src="jarshin.jpg" alt="Profile" class="img-fluid" style="width:250px;height:250px;object-fit:cover;">
-          </div>
-        </div>
-
-        <div class="col-md-8" data-aos="fade-left">
-          <div class="glass-panel">
-            <h1 class="fw-bold">Hi, I'm <span class="text-primary">Jarshin J S</span></h1>
-            <h4 id="typed-text" class="text-secondary mt-2"></h4>
-            <p class="mt-3">I’m a passionate Full-Stack Developer skilled in Python, Django, JavaScript, and Bootstrap — creating fast, modern, and user-friendly web experiences.</p>
-            <div class="d-flex flex-wrap gap-2">
-              <a href="#projects" class="btn btn-primary">View My Work</a>
-              <!-- Download Resume Button -->
-              <button id="downloadResumeBtn" class="btn btn-outline-primary">
-                <i class="bi bi-download me-1"></i> Download Resume (PDF)
-              </button>
-            </div>
-          </div>
-        </div>
+  <!-- ===== Hero ===== -->
+  <section id="home" class="container py-5">
+    <div class="row align-items-center">
+      <div class="col-md-4 text-center" data-aos="zoom-in">
+        <img src="Jarshin J S.jpg" alt="Jarshin J S" class="img-fluid" style="width:250px;height:250px;object-fit:cover;">
       </div>
-    </div>
-
-    <!-- Hidden Resume Content for PDF generation -->
-    <div id="resumeContent" class="container mt-4" style="display:none">
-      <div class="glass-card p-4">
-        <h2 class="mb-0">Jarshin J S</h2>
-        <p class="mb-2">Full-Stack Developer • Python | Django | JavaScript</p>
-        <hr>
-        <h5>Summary</h5>
-        <p>Full-stack developer focused on clean UI, robust Django backends, and great UX. Interested in performance and accessibility.</p>
-        <h5>Skills</h5>
-        <ul class="mb-2">
-          <li>Frontend: HTML5, CSS3, Bootstrap, JavaScript</li>
-          <li>Backend: Python, Django, REST APIs</li>
-          <li>Tools: Git/GitHub, Postman, SQLite/PostgreSQL</li>
-        </ul>
-        <h5>Projects</h5>
-        <p><strong>Online Notes App</strong> — Django-based notes sharing platform with authentication.</p>
-        <p><strong>Weather App</strong> — JS app using OpenWeather API with clean UI.</p>
-        <h5>Contact</h5>
-        <p>Email: jarshin07@gmail.com • GitHub: github.com/JarshinJS • LinkedIn: linkedin.com/in/jarshinjs/</p>
+      <div class="col-md-8" data-aos="fade-left">
+        <div class="glass-panel">
+          <h1 class="fw-bold">Hi, I'm <span class="text-primary">Jarshin J S</span></h1>
+          <h4 id="typed-text" class="text-secondary mt-2"></h4>
+          <p class="mt-3">
+            Full Stack Developer and IoT Enthusiast crafting smart, responsive, and scalable web solutions that connect
+            technology with innovation.
+          </p>
+          <a href="#projects" class="btn btn-primary me-2">View My Work</a>
+          <a href="Jarshin Resume.pdf" class="btn btn-outline-primary" download>
+            <i class="bi bi-download me-1"></i> Download Resume
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="container fade-in" data-aos="fade-up">
-    <h2 class="text-center mb-4 fw-bold">About Me</h2>
+  <!-- ===== About ===== -->
+  <section id="about" class="container" data-aos="fade-up">
+    <h2 class="text-center fw-bold mb-4">About Me</h2>
     <p class="text-center mb-5">
-      I'm a dedicated full-stack developer who loves transforming creative ideas into functional,
-      user-friendly web apps. I specialize in Django & modern UI/UX.
+      I’m a B.Tech CSE (IoT) student and IEEE member with hands-on experience in Full Stack Web Development using HTML,
+      CSS, JavaScript, Python, and Django. Passionate about integrating IoT with web technologies to build innovative,
+      user-friendly solutions.
     </p>
 
-    <div class="row text-center about-skills">
-      <div class="col-md-4 mb-4 skill-box" data-aos="zoom-in" data-aos-delay="50">
-        <h6>HTML <span class="skill-counter" data-target="95">0</span>%</h6>
-        <div class="skill-bar"><div class="skill-progress" data-progress="95%"></div></div>
+    <!-- Skills -->
+    <div class="row text-center justify-content-center">
+  <!-- HTML -->
+  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="50">
+    <div class="skill-card p-3 shadow-lg rounded-4">
+      <i class="fab fa-html5 fa-3x text-danger mb-2"></i>
+      <h6>HTML <span class="skill-counter" data-target="95">0</span>%</h6>
+      <div class="skill-bar"><div class="skill-progress" data-progress="95%"></div></div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="150">
+    <div class="skill-card p-3 shadow-lg rounded-4">
+      <i class="fab fa-js-square fa-3x text-warning mb-2"></i>
+      <h6>JavaScript <span class="skill-counter" data-target="85">0</span>%</h6>
+      <div class="skill-bar"><div class="skill-progress" data-progress="85%"></div></div>
+    </div>
+  </div>
+
+  <!-- Django -->
+  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="250">
+    <div class="skill-card p-3 shadow-lg rounded-4">
+      <i class="fas fa-leaf fa-3x text-success mb-2"></i>
+      <h6>Django <span class="skill-counter" data-target="80">0</span>%</h6>
+      <div class="skill-bar"><div class="skill-progress" data-progress="80%"></div></div>
+    </div>
+  </div>
+
+  <!-- Git -->
+  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="350">
+    <div class="skill-card p-3 shadow-lg rounded-4">
+      <i class="fab fa-git-alt fa-3x text-danger mb-2"></i>
+      <h6>Git <span class="skill-counter" data-target="75">0</span>%</h6>
+      <div class="skill-bar"><div class="skill-progress" data-progress="75%"></div></div>
+    </div>
+  </div>
+
+  <!-- GitHub -->
+  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="450">
+    <div class="skill-card p-3 shadow-lg rounded-4">
+      <i class="fab fa-github fa-3x text-dark mb-2"></i>
+      <h6>GitHub <span class="skill-counter" data-target="85">0</span>%</h6>
+      <div class="skill-bar"><div class="skill-progress" data-progress="85%"></div></div>
+    </div>
+  </div>
+
+  <!-- VS Code -->
+  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="550">
+    <div class="skill-card p-3 shadow-lg rounded-4">
+      <i class="fas fa-code fa-3x text-primary mb-2"></i>
+      <h6>VS Code <span class="skill-counter" data-target="90">0</span>%</h6>
+      <div class="skill-bar"><div class="skill-progress" data-progress="90%"></div></div>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects" class="container" data-aos="fade-up">
+    <h2 class="text-center fw-bold mb-5">Projects</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="project-card h-100">
+          <img src="https://via.placeholder.com/400x250" alt="Online Notes App" class="card-img-top">
+          <div class="p-3">
+            <h5>Online Notes App</h5>
+            <p>A Django-based notes sharing platform with authentication and CRUD functionality.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">GitHub</a>
+            <a href="#" class="btn btn-sm btn-outline-success">Live Demo</a>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4 mb-4 skill-box" data-aos="zoom-in" data-aos-delay="150">
-        <h6>JavaScript <span class="skill-counter" data-target="85">0</span>%</h6>
-        <div class="skill-bar"><div class="skill-progress" data-progress="85%"></div></div>
+
+      <div class="col-md-4">
+        <div class="project-card h-100">
+          <img src="https://via.placeholder.com/400x250" alt="Portfolio Website" class="card-img-top">
+          <div class="p-3">
+            <h5>Portfolio Website</h5>
+            <p>Responsive personal portfolio built using Bootstrap, JS, and AOS animations.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">GitHub</a>
+            <a href="#" class="btn btn-sm btn-outline-success">Live Demo</a>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4 mb-4 skill-box" data-aos="zoom-in" data-aos-delay="250">
-        <h6>Django <span class="skill-counter" data-target="80">0</span>%</h6>
-        <div class="skill-bar"><div class="skill-progress" data-progress="80%"></div></div>
+
+      <div class="col-md-4">
+        <div class="project-card h-100">
+          <img src="https://via.placeholder.com/400x250" alt="Weather App" class="card-img-top">
+          <div class="p-3">
+            <h5>Weather App</h5>
+            <p>Dynamic weather forecast app using OpenWeather API and JavaScript.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">GitHub</a>
+            <a href="#" class="btn btn-sm btn-outline-success">Live Demo</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="fade-in" data-aos="fade-up">
-    <div class="container">
-      <h2 class="text-center mb-5 fw-bold">Projects</h2>
-      <div class="row g-4">
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="container py-5" data-aos="fade-up">
+    <h2 class="text-center fw-bold mb-4">Contact Me</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="69fc3b47-da3d-41cd-8a67-f2d27015f5a5">
+          <label class="form-label mt-2">Name</label>
+          <input type="text" name="name" class="form-control" required>
+          <label class="form-label mt-3">Email</label>
+          <input type="email" name="email" class="form-control" required>
+          <label class="form-label mt-3">Message</label>
+          <textarea name="message" class="form-control" rows="5" required></textarea>
+          <button class="btn btn-primary w-100 mt-4">Send Message</button>
+        </form>
 
-        <div class="col-md-4">
-          <div class="card project-card h-100">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Online Notes App">
-            <div class="card-body">
-              <h5 class="card-title">Online Notes App</h5>
-              <p class="card-text">A Django-based notes sharing platform with user authentication and cloud storage.</p>
-              <div class="d-flex gap-2">
-                <a href="#" class="btn btn-sm btn-outline-primary">GitHub</a>
-                <a href="#" class="btn btn-sm btn-outline-success">Live Demo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card project-card h-100">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Portfolio Website">
-            <div class="card-body">
-              <h5 class="card-title">Portfolio Website</h5>
-              <p class="card-text">Responsive personal portfolio with smooth animations using Bootstrap and JS.</p>
-              <div class="d-flex gap-2">
-                <a href="#" class="btn btn-sm btn-outline-primary">GitHub</a>
-                <a href="#" class="btn btn-sm btn-outline-success">Live Demo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card project-card h-100">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Weather App">
-            <div class="card-body">
-              <h5 class="card-title">Weather App</h5>
-              <p class="card-text">Dynamic weather forecast app using JavaScript and OpenWeather API.</p>
-              <div class="d-flex gap-2">
-                <a href="#" class="btn btn-sm btn-outline-primary">GitHub</a>
-                <a href="#" class="btn btn-sm btn-outline-success">Live Demo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <p class="text-center mt-4">
+          <a href="https://github.com/JarshinJS"><i class="bi bi-github fs-4 mx-2"></i></a>
+          <a href="https://www.linkedin.com/in/jarshinjs/"><i class="bi bi-linkedin fs-4 mx-2"></i></a>
+          <a href="mailto:jarshin07@gmail.com"><i class="bi bi-envelope fs-4 mx-2"></i></a>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="fade-in" data-aos="fade-up">
-    <div class="container">
-      <h2 class="text-center mb-4 fw-bold">Contact Me</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST"
-            class="glass-card p-4">
-            <input type="hidden" name="access_key" value="69fc3b47-da3d-41cd-8a67-f2d27015f5a5">
-
-            <h5 class="mb-1">Get in touch</h5>
-            <p class="text-muted">Fill the form & I’ll reply soon.</p>
-
-            <label class="form-label mt-2">Name</label>
-            <input type="text" name="name" class="form-control" required>
-
-            <label class="form-label mt-3">Email</label>
-            <input type="email" name="email" class="form-control" required>
-
-            <label class="form-label mt-3">Message</label>
-            <textarea name="message" class="form-control" rows="5" required></textarea>
-
-            <button class="btn btn-primary w-100 mt-3">Submit</button>
-            <p class="text-center text-muted mt-2 mb-0" style="font-size:12px;">Secured by Web3Forms • You’ll receive a confirmation email.</p>
-          </form>
-
-          <p class="text-center mt-4">
-            <a href="https://github.com/JarshinJS" aria-label="GitHub"><i class="bi bi-github fs-4 mx-2"></i></a>
-            <a href="https://www.linkedin.com/in/jarshinjs/" aria-label="LinkedIn"><i class="bi bi-linkedin fs-4 mx-2"></i></a>
-            <a href="mailto:jarshin07@gmail.com" aria-label="Email"><i class="bi bi-envelope fs-4 mx-2"></i></a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer>© 2025 Jarshin J S. All Rights Reserved.</footer>
 
-  <!-- Floating WhatsApp -->
-  <a class="fab-whatsapp" href="https://wa.me/+91 9345511293" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <!-- ===== WhatsApp ===== -->
+  <a class="fab-whatsapp" href="https://wa.me/919345511293" target="_blank">
     <i class="bi bi-whatsapp"></i>
   </a>
 
-  <!-- Sticky Bottom Mobile Nav -->
-  <nav class="bottom-nav">
-    <a href="#home" class="active"><i class="bi bi-house"></i>Home</a>
-    <a href="#about"><i class="bi bi-person"></i>About</a>
-    <a href="#projects"><i class="bi bi-kanban"></i>Projects</a>
-    <a href="#contact"><i class="bi bi-envelope"></i>Contact</a>
-  </nav>
+  <!-- ===== Dark Mode Toggle ===== -->
+  <button id="darkModeToggle"><i class="bi bi-moon-stars"></i></button>
 
-  <!-- Dark Mode Toggle -->
-  <button id="darkModeToggle" aria-label="Toggle theme"><i class="bi bi-moon-stars"></i></button>
-
-  <!-- JS: Bootstrap, AOS, html2pdf -->
+  <!-- ===== JS ===== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
-
-  <!-- App JS -->
   <script>
-    // ===== Preloader =====
-    window.addEventListener('load', () => {
-      const preloader = document.getElementById('preloader');
-      preloader.style.opacity = '0';
-      setTimeout(() => preloader.style.display = 'none', 300);
-    });
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-quart', offset: 60 });
 
-    // ===== Scroll Progress Bar =====
-    const progressBar = document.getElementById('scrollProgress');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      progressBar.style.width = progress + '%';
-      // Bottom nav active link update
-      updateBottomNavActive();
-    });
-
-    // ===== Typing Effect =====
+    // Typing Effect
     const typedText = document.getElementById("typed-text");
-    const texts = ["Full-Stack Developer", "Django Specialist", "JavaScript Enthusiast", "UI/UX Explorer"];
+    const texts = ["Full-Stack Developer", "Django Specialist", "JavaScript Enthusiast", "IoT Innovator"];
     let textIndex = 0, charIndex = 0, isDeleting = false;
-
     function typeEffect() {
       const current = texts[textIndex];
       typedText.textContent = isDeleting ? current.substring(0, charIndex--) : current.substring(0, charIndex++);
       let speed = isDeleting ? 60 : 100;
-
       if (!isDeleting && charIndex === current.length) { speed = 900; isDeleting = true; }
       else if (isDeleting && charIndex === 0) { isDeleting = false; textIndex = (textIndex + 1) % texts.length; speed = 300; }
       setTimeout(typeEffect, speed);
     }
     typeEffect();
 
-    // ===== AOS Init (scroll reveals) =====
-    AOS.init({
-      once: true,
-      duration: 700,
-      easing: 'ease-out-quart',
-      offset: 60
-    });
-
-    // ===== Skill Bars on scroll =====
-    function fillSkillBars() {
-      document.querySelectorAll('.skill-progress').forEach(bar => {
-        const rect = bar.getBoundingClientRect();
-        if (rect.top < window.innerHeight) bar.style.width = bar.dataset.progress;
-      });
-    }
-    window.addEventListener('scroll', fillSkillBars);
-    fillSkillBars();
-
-    // ===== About Section Counters & stagger =====
-    function animateCounters() {
-      document.querySelectorAll(".skill-counter").forEach(counter => {
-        let target = +counter.getAttribute("data-target"), count = 0, speed = 20;
+    // Animate Skill Bars
+    document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll(".skill-counter");
+      const progressBars = document.querySelectorAll(".skill-progress");
+      counters.forEach((counter, i) => {
+        const target = +counter.dataset.target;
+        let count = 0;
         function update() {
-          if (count < target) { count++; counter.textContent = count; setTimeout(update, speed); }
+          if (count < target) { count++; counter.textContent = count; requestAnimationFrame(update); }
           else counter.textContent = target;
         }
         update();
-      });
-    }
-    const aboutSection = document.getElementById("about");
-    const aboutObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) { animateCounters(); aboutObserver.disconnect(); }
-    });
-    aboutObserver.observe(aboutSection);
-
-    // ===== Fade-in class support (in addition to AOS) =====
-    const faders = document.querySelectorAll('.fade-in');
-    window.addEventListener('scroll', () => {
-      faders.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) el.classList.add('show');
+        setTimeout(() => progressBars[i].style.width = progressBars[i].dataset.progress, 300);
       });
     });
 
-    // ===== Download Resume (html2pdf) =====
-    document.getElementById('downloadResumeBtn').addEventListener('click', () => {
-      const resume = document.getElementById('resumeContent');
-      // Temporarily show content for capture
-      const prevDisplay = resume.style.display;
-      resume.style.display = 'block';
-      const opt = {
-        margin:       0.5,
-        filename:     'Jarshin_JS_Resume.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-      };
-      html2pdf().from(resume).set(opt).save().then(() => {
-        resume.style.display = prevDisplay;
-      });
-    });
-
-    // ===== Contact Form (optional intercept for success toast) =====
-    const cf = document.getElementById('contactForm');
-    cf.addEventListener('submit', () => {
-      // Let Web3Forms handle submission; you can show a quick toast if needed
-      setTimeout(() => console.log('Form submitted'), 0);
-    });
-
-    // ===== Dark Mode Toggle =====
+    // Dark Mode
     const toggle = document.getElementById('darkModeToggle');
-    toggle.addEventListener('click', (event) => {
+    toggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       toggle.innerHTML = document.body.classList.contains('dark-mode')
         ? '<i class="bi bi-sun"></i>'
         : '<i class="bi bi-moon-stars"></i>';
     });
-
-    // ===== Sticky Bottom Nav: highlight active section =====
-    const bottomNav = document.querySelector('.bottom-nav');
-    const bottomLinks = bottomNav.querySelectorAll('a');
-    const sections = [...bottomLinks].map(a => document.querySelector(a.getAttribute('href')));
-
-    function updateBottomNavActive() {
-      let idx = 0, minDist = Infinity;
-      sections.forEach((sec, i) => {
-        const rect = sec.getBoundingClientRect();
-        const dist = Math.abs(rect.top);
-        if (dist < minDist) { minDist = dist; idx = i; }
-      });
-      bottomLinks.forEach((a, i) => a.classList.toggle('active', i === idx));
-    }
-    bottomLinks.forEach(a => {
-      a.addEventListener('click', () => {
-        setTimeout(updateBottomNavActive, 400);
-      });
-    });
-    updateBottomNavActive();
-
-    // ===== Performance: limit heavy effects on ultra-small devices =====
-    if (window.innerWidth < 420) {
-      document.querySelectorAll(".skill-progress").forEach(bar => { bar.style.transition = "none"; });
-    }
   </script>
 </body>
+
 </html>
