@@ -6,178 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jarshin J S | Portfolio</title>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
-  <style>
-    :root {
-      --bg-light: #edf1f7;
-      --text-dark: #1f2937;
-      --primary-color: #4b6cb7;
-      --secondary-color: #182848;
-      --glass-bg: rgba(255, 255, 255, 0.45);
-      --glass-border: rgba(255, 255, 255, 0.45);
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #eef2ff, #e6f0ff);
-      color: var(--text-dark);
-      overflow-x: hidden;
-    }
-
-    /* ===== Navbar ===== */
-    .navbar {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow);
-    }
-
-    /* ===== Hero ===== */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 90px;
-    }
-
-    #home .glass-panel {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    #home img {
-      border-radius: 50%;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
-    }
-
-    /* ===== About + Skills ===== */
-    #about {
-      padding: 80px 0;
-    }
-
-    .skill-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      background: #fff;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .skill-bar {
-      height: 8px;
-      background: #e5e5e5;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 8px;
-    }
-
-    .skill-progress {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, #007bff, #00d4ff);
-      border-radius: 20px;
-      transition: width 1.5s ease;
-    }
-
-    /* ===== Projects ===== */
-    #projects {
-      padding: 80px 0;
-    }
-
-    .project-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
-    }
-
-    .project-card img {
-      border-top-left-radius: 18px;
-      border-top-right-radius: 18px;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    /* ===== Contact ===== */
-    #contact form {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      text-align: center;
-      padding: 18px;
-      color: #475569;
-    }
-
-    /* ===== WhatsApp ===== */
-    .fab-whatsapp {
-      position: fixed;
-      right: 18px;
-      bottom: 90px;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #25D366;
-      color: #fff;
-      font-size: 26px;
-      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.35);
-      z-index: 1400;
-      text-decoration: none;
-    }
-
-    /* ===== Dark Mode ===== */
-    body.dark-mode {
-      background: radial-gradient(800px 400px at 120% -10%, #0d1222, #090d18);
-      color: #eaeef7;
-    }
-
-    body.dark-mode .navbar,
-    body.dark-mode #contact form,
-    body.dark-mode .skill-card,
-    body.dark-mode .project-card {
-      background: rgba(15, 17, 27, 0.5);
-      border-color: rgba(255, 255, 255, 0.08);
-    }
-
-    #darkModeToggle {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      background: var(--secondary-color);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 1400;
-      box-shadow: var(--shadow);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -204,129 +45,178 @@
   <section id="home" class="container py-5">
     <div class="row align-items-center">
       <div class="col-md-4 text-center" data-aos="zoom-in">
-        <img src="Jarshin J S.jpg" alt="Jarshin J S" class="img-fluid" style="width:250px;height:250px;object-fit:cover;">
+        <img src="Jarshin J S.jpg" alt="Jarshin J S" class="img-fluid"
+          style="width:250px;height:250px;object-fit:cover;">
       </div>
       <div class="col-md-8" data-aos="fade-left">
         <div class="glass-panel">
-          <h1 class="fw-bold">Hi, I'm <span class="text-primary">Jarshin J S</span></h1>
-          <h4 id="typed-text" class="text-secondary mt-2"></h4>
-          <p class="mt-3">
-            Full Stack Developer and IoT Enthusiast crafting smart, responsive, and scalable web solutions that connect
-            technology with innovation.
+          <h1 class="fw-bold display-title">Hi, I'm <span class="text-highlight">Jarshin J S</span></h1>
+          <h4 id="typed-text" class="text-secondary mt-3 mb-4" style="font-weight: 500;"></h4>
+          <p class="mt-3 lead-text mb-5">
+            Full Stack Developer and IoT Enthusiast. I build scalable, accessible, and high-performance web solutions
+            that solve real-world problems.
           </p>
-          <a href="#projects" class="btn btn-primary me-2">View My Work</a>
-          <a href="Jarshin Resume.pdf" class="btn btn-outline-primary" download>
-            <i class="bi bi-download me-1"></i> Download Resume
-          </a>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="Jarshin Resume.pdf" class="btn btn-outline-primary" download>
+              <i class="bi bi-download me-2"></i>Resume
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== About ===== -->
-  <section id="about" class="container" data-aos="fade-up">
-    <h2 class="text-center fw-bold mb-4">About Me</h2>
-    <p class="text-center mb-5">
-      I’m a B.Tech CSE (IoT) student and IEEE member with hands-on experience in Full Stack Web Development using HTML,
-      CSS, JavaScript, Python, and Django. Passionate about integrating IoT with web technologies to build innovative,
-      user-friendly solutions.
-    </p>
+  <section id="about" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header">
+        <h2>Technical Expertise</h2>
+        <p class="text-secondary" style="max-width: 700px; margin: 0 auto;">
+          I possess a diverse set of skills ranging from front-end development to backend logic and IoT integration.
+          My focus is on writing clean, maintainable code.
+        </p>
+      </div>
 
-    <!-- Skills -->
-    <div class="row text-center justify-content-center">
-  <!-- HTML -->
-  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="50">
-    <div class="skill-card p-3 shadow-lg rounded-4">
-      <i class="fab fa-html5 fa-3x text-danger mb-2"></i>
-      <h6>HTML <span class="skill-counter" data-target="95">0</span>%</h6>
-      <div class="skill-bar"><div class="skill-progress" data-progress="95%"></div></div>
-    </div>
-  </div>
+      <!-- Skills -->
+      <div class="row text-center justify-content-center">
+        <!-- HTML -->
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="50">
+          <div class="skill-card">
+            <i class="fab fa-html5 fa-3x text-gradient mb-3"></i>
+            <h6>HTML <span class="skill-counter" data-target="95">0</span>%</h6>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="95%"></div>
+            </div>
+          </div>
+        </div>
 
-  <!-- JavaScript -->
-  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="150">
-    <div class="skill-card p-3 shadow-lg rounded-4">
-      <i class="fab fa-js-square fa-3x text-warning mb-2"></i>
-      <h6>JavaScript <span class="skill-counter" data-target="85">0</span>%</h6>
-      <div class="skill-bar"><div class="skill-progress" data-progress="85%"></div></div>
-    </div>
-  </div>
+        <!-- JavaScript -->
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="150">
+          <div class="skill-card">
+            <i class="fab fa-js-square fa-3x text-gradient mb-3"></i>
+            <h6>JavaScript <span class="skill-counter" data-target="85">0</span>%</h6>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="85%"></div>
+            </div>
+          </div>
+        </div>
 
-  <!-- Django -->
-  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="250">
-    <div class="skill-card p-3 shadow-lg rounded-4">
-      <i class="fas fa-leaf fa-3x text-success mb-2"></i>
-      <h6>Django <span class="skill-counter" data-target="80">0</span>%</h6>
-      <div class="skill-bar"><div class="skill-progress" data-progress="80%"></div></div>
-    </div>
-  </div>
+        <!-- Django -->
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="250">
+          <div class="skill-card">
+            <i class="fas fa-leaf fa-3x text-gradient mb-3"></i>
+            <h6>Django <span class="skill-counter" data-target="80">0</span>%</h6>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="80%"></div>
+            </div>
+          </div>
+        </div>
 
-  <!-- Git -->
-  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="350">
-    <div class="skill-card p-3 shadow-lg rounded-4">
-      <i class="fab fa-git-alt fa-3x text-danger mb-2"></i>
-      <h6>Git <span class="skill-counter" data-target="75">0</span>%</h6>
-      <div class="skill-bar"><div class="skill-progress" data-progress="75%"></div></div>
-    </div>
-  </div>
+        <!-- Git -->
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="350">
+          <div class="skill-card">
+            <i class="fab fa-git-alt fa-3x text-gradient mb-3"></i>
+            <h6>Git <span class="skill-counter" data-target="75">0</span>%</h6>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="75%"></div>
+            </div>
+          </div>
+        </div>
 
-  <!-- GitHub -->
-  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="450">
-    <div class="skill-card p-3 shadow-lg rounded-4">
-      <i class="fab fa-github fa-3x text-dark mb-2"></i>
-      <h6>GitHub <span class="skill-counter" data-target="85">0</span>%</h6>
-      <div class="skill-bar"><div class="skill-progress" data-progress="85%"></div></div>
-    </div>
-  </div>
+        <!-- GitHub -->
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="450">
+          <div class="skill-card">
+            <i class="fab fa-github fa-3x text-gradient mb-3"></i>
+            <h6>GitHub <span class="skill-counter" data-target="85">0</span>%</h6>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="85%"></div>
+            </div>
+          </div>
+        </div>
 
-  <!-- VS Code -->
-  <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="550">
-    <div class="skill-card p-3 shadow-lg rounded-4">
-      <i class="fas fa-code fa-3x text-primary mb-2"></i>
-      <h6>VS Code <span class="skill-counter" data-target="90">0</span>%</h6>
-      <div class="skill-bar"><div class="skill-progress" data-progress="90%"></div></div>
-    </div>
-  </div>
-</div>
+        <!-- VS Code -->
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="550">
+          <div class="skill-card">
+            <i class="fas fa-code fa-3x text-gradient mb-3"></i>
+            <h6>VS Code <span class="skill-counter" data-target="90">0</span>%</h6>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="90%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
   </section>
 
   <!-- ===== Projects ===== -->
-  <section id="projects" class="container" data-aos="fade-up">
-    <h2 class="text-center fw-bold mb-5">Projects</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="project-card h-100">
-          <img src="https://via.placeholder.com/400x250" alt="Online Notes App" class="card-img-top">
-          <div class="p-3">
-            <h5>Online Notes App</h5>
-            <p>A Django-based notes sharing platform with authentication and CRUD functionality.</p>
-            <a href="#" class="btn btn-sm btn-outline-primary">GitHub</a>
-            <a href="#" class="btn btn-sm btn-outline-success">Live Demo</a>
+  <section id="projects" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Projects</h2>
+        <p class="text-secondary">A selection of my recent work in web development and software engineering.</p>
+      </div>
+      <div class="row g-4">
+
+
+        <div class="col-md-4">
+          <div class="project-card h-100">
+            <div class="project-img-wrapper">
+              <img src="img2.png" alt="Portfolio Website">
+            </div>
+            <div class="project-content">
+              <h5>Portfolio Website</h5>
+              <p>Responsive personal portfolio built using Bootstrap, JS, and AOS animations.</p>
+              <div class="d-flex gap-2 mt-auto">
+                <a href="https://github.com/JarshinJS" class="btn btn-sm btn-sm-primary">GitHub</a>
+                <a href="#" class="btn btn-sm btn-sm-primary">Live Demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-4">
+          <div class="project-card h-100">
+            <div class="project-img-wrapper">
+              <img src="img1.png" alt="Password Strength Checker">
+            </div>
+            <div class="project-content">
+              <h5>Password Strength Checker</h5>
+              <p>A JavaScript-based tool to evaluate password strength with real-time feedback.</p>
+              <div class="d-flex gap-2 mt-auto">
+                <a href="https://github.com/JarshinJS" class="btn btn-sm btn-sm-primary">GitHub</a>
+                <a href="https://jarshinjs.github.io/password-strength-checker/" class="btn btn-sm btn-sm-primary">Live
+                  Demo</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+  </section>
 
-      <div class="col-md-4">
-        <div class="project-card h-100">
-          <img src="https://via.placeholder.com/400x250" alt="Portfolio Website" class="card-img-top">
-          <div class="p-3">
-            <h5>Portfolio Website</h5>
-            <p>Responsive personal portfolio built using Bootstrap, JS, and AOS animations.</p>
-            <a href="#" class="btn btn-sm btn-outline-primary">GitHub</a>
-            <a href="#" class="btn btn-sm btn-outline-success">Live Demo</a>
-          </div>
-        </div>
+  <!-- ===== Certifications ===== -->
+  <section id="certifications" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header">
+        <h2>Certifications</h2>
+        <p class="text-secondary">Credentials and professional achievements.</p>
       </div>
-
-      <div class="col-md-4">
-        <div class="project-card h-100">
-          <img src="https://via.placeholder.com/400x250" alt="Weather App" class="card-img-top">
-          <div class="p-3">
-            <h5>Weather App</h5>
-            <p>Dynamic weather forecast app using OpenWeather API and JavaScript.</p>
-            <a href="#" class="btn btn-sm btn-outline-primary">GitHub</a>
-            <a href="#" class="btn btn-sm btn-outline-success">Live Demo</a>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="project-card h-100">
+            <div class="project-img-wrapper">
+              <img src="img3.JPG" alt="Certification">
+            </div>
+            <div class="project-content">
+              <h5>Professional Certification</h5>
+              <p>Recognized industry credential validating technical expertise and skills.</p>
+              <div class="d-flex gap-2 mt-auto">
+                <a href="https://csrionline.com/certificate-verification" class="btn btn-sm btn-sm-primary w-100"
+                  target="_blank">View Credential</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -334,32 +224,36 @@
   </section>
 
   <!-- ===== Contact ===== -->
-  <section id="contact" class="container py-5" data-aos="fade-up">
-    <h2 class="text-center fw-bold mb-4">Contact Me</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <form action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="69fc3b47-da3d-41cd-8a67-f2d27015f5a5">
-          <label class="form-label mt-2">Name</label>
-          <input type="text" name="name" class="form-control" required>
-          <label class="form-label mt-3">Email</label>
-          <input type="email" name="email" class="form-control" required>
-          <label class="form-label mt-3">Message</label>
-          <textarea name="message" class="form-control" rows="5" required></textarea>
-          <button class="btn btn-primary w-100 mt-4">Send Message</button>
-        </form>
-
-        <p class="text-center mt-4">
-          <a href="https://github.com/JarshinJS"><i class="bi bi-github fs-4 mx-2"></i></a>
-          <a href="https://www.linkedin.com/in/jarshinjs/"><i class="bi bi-linkedin fs-4 mx-2"></i></a>
-          <a href="mailto:jarshin07@gmail.com"><i class="bi bi-envelope fs-4 mx-2"></i></a>
-        </p>
+  <section id="contact" data-aos="fade-up">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+        <p class="text-secondary">Have a project in mind or want to discuss opportunities?</p>
       </div>
-    </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="69fc3b47-da3d-41cd-8a67-f2d27015f5a5">
+            <label class="form-label mt-2">Name</label>
+            <input type="text" name="name" class="form-control" required>
+            <label class="form-label mt-3">Email</label>
+            <input type="email" name="email" class="form-control" required>
+            <label class="form-label mt-3">Message</label>
+            <textarea name="message" class="form-control" rows="5" required></textarea>
+            <button class="btn btn-primary w-100 mt-4">Send Message</button>
+          </form>
+
+          <div class="social-links">
+            <a href="https://github.com/JarshinJS"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/jarshinjs/"><i class="bi bi-linkedin"></i></a>
+            <a href="mailto:jarshin07@gmail.com"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+      </div>
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer>© 2025 Jarshin J S. All Rights Reserved.</footer>
+  <footer>© 2026 Jarshin J S. All Rights Reserved.</footer>
 
   <!-- ===== WhatsApp ===== -->
   <a class="fab-whatsapp" href="https://wa.me/919345511293" target="_blank">
@@ -372,48 +266,7 @@
   <!-- ===== JS ===== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ once: true, duration: 700, easing: 'ease-out-quart', offset: 60 });
-
-    // Typing Effect
-    const typedText = document.getElementById("typed-text");
-    const texts = ["Full-Stack Developer", "Django Specialist", "JavaScript Enthusiast", "IoT Innovator"];
-    let textIndex = 0, charIndex = 0, isDeleting = false;
-    function typeEffect() {
-      const current = texts[textIndex];
-      typedText.textContent = isDeleting ? current.substring(0, charIndex--) : current.substring(0, charIndex++);
-      let speed = isDeleting ? 60 : 100;
-      if (!isDeleting && charIndex === current.length) { speed = 900; isDeleting = true; }
-      else if (isDeleting && charIndex === 0) { isDeleting = false; textIndex = (textIndex + 1) % texts.length; speed = 300; }
-      setTimeout(typeEffect, speed);
-    }
-    typeEffect();
-
-    // Animate Skill Bars
-    document.addEventListener("DOMContentLoaded", () => {
-      const counters = document.querySelectorAll(".skill-counter");
-      const progressBars = document.querySelectorAll(".skill-progress");
-      counters.forEach((counter, i) => {
-        const target = +counter.dataset.target;
-        let count = 0;
-        function update() {
-          if (count < target) { count++; counter.textContent = count; requestAnimationFrame(update); }
-          else counter.textContent = target;
-        }
-        update();
-        setTimeout(() => progressBars[i].style.width = progressBars[i].dataset.progress, 300);
-      });
-    });
-
-    // Dark Mode
-    const toggle = document.getElementById('darkModeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      toggle.innerHTML = document.body.classList.contains('dark-mode')
-        ? '<i class="bi bi-sun"></i>'
-        : '<i class="bi bi-moon-stars"></i>';
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
