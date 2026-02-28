@@ -286,13 +286,41 @@
   <!-- ===== Footer ===== -->
   <footer>© 2026 Jarshin J S. All Rights Reserved.</footer>
 
-  <!-- ===== WhatsApp ===== -->
-  <a class="fab-whatsapp" href="https://wa.me/919345511293" target="_blank">
-    <i class="bi bi-whatsapp"></i>
-  </a>
+  <!-- ===== Chatbot Widget ===== -->
+  <div id="chatbot-wrapper">
+    <!-- Toggle FAB -->
+    <button id="chatbot-toggle" aria-label="Open chatbot">
+      <i class="bi bi-robot" id="chat-icon"></i>
+    </button>
 
-  <!-- ===== Dark Mode Toggle ===== -->
-  <button id="darkModeToggle"><i class="bi bi-moon-stars"></i></button>
+    <!-- Chat Window -->
+    <div id="chatbot-window" aria-live="polite">
+      <!-- Header -->
+      <div id="chatbot-header">
+        <div class="chatbot-avatar"><i class="bi bi-robot"></i></div>
+        <div class="chatbot-title">
+          <span class="chatbot-name">Jarshin's AI</span>
+          <span class="chatbot-status"><span class="status-dot"></span>Online</span>
+        </div>
+        <div class="chatbot-header-actions">
+          <button id="darkModeToggle" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+          <button id="chatbot-close" aria-label="Close chatbot"><i class="bi bi-x-lg"></i></button>
+        </div>
+      </div>
+
+      <!-- Messages -->
+      <div id="chatbot-messages"></div>
+
+      <!-- Quick Suggestions -->
+      <div id="chatbot-suggestions"></div>
+
+      <!-- Input -->
+      <div id="chatbot-input-area">
+        <input id="chatbot-input" type="text" placeholder="Ask me anything…" autocomplete="off" />
+        <button id="chatbot-send" aria-label="Send"><i class="bi bi-send-fill"></i></button>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== JS ===== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
