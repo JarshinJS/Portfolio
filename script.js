@@ -2,7 +2,7 @@ AOS.init({ once: true, duration: 700, easing: 'ease-out-quart', offset: 60 });
 
 // Typing Effect
 const typedText = document.getElementById("typed-text");
-const texts = ["Full-Stack Developer", "Django Specialist", "JavaScript Enthusiast", "IoT Innovator"];
+const texts = ["Web Developer Intern Aspirant", "Full-Stack Developer", "Django Specialist", "JavaScript Enthusiast", "IoT Innovator"];
 let textIndex = 0, charIndex = 0, isDeleting = false;
 function typeEffect() {
   const current = texts[textIndex];
@@ -30,13 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Dark Mode (toggle lives inside chatbot header)
-const toggle = document.getElementById('darkModeToggle');
-toggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  toggle.innerHTML = document.body.classList.contains('dark-mode')
-    ? '<i class="bi bi-sun"></i>'
-    : '<i class="bi bi-moon-stars"></i>';
+// Dark Mode
+const darkModeToggles = document.querySelectorAll('.dark-mode-toggle');
+darkModeToggles.forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    const iconHTML = isDark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
+    
+    // Update all toggles to keep them in sync
+    darkModeToggles.forEach(t => t.innerHTML = iconHTML);
+  });
 });
 
 // ===== Chatbot =====
@@ -145,187 +149,185 @@ toggle.addEventListener('click', () => {
     /* ===== ALL PROJECTS ===== */
     {
       keys: ['project', 'work', 'built', 'made', 'created', 'developed', 'application', 'app', 'show me', 'all project', 'what have you', 'what did you build', 'portfolio project'],
-      reply: "\uD83D\uDE80 <strong>Featured Projects:</strong><br><br>\uD83D\uDCC1 <strong>1. Portfolio Website</strong> (This Site!)<br>Bootstrap 5 + Vanilla JS + AOS animations. Features: typing effect, skill bars, dark mode, AI chatbot, contact form.<br><a href='#home' onclick='window.scrollTo(0,0)'>↑ Scroll to top</a><br><br>\uD83D\uDD10 <strong>2. Password Strength Checker</strong><br>Pure JavaScript real-time password validator. Zero dependencies, fast, deployed on GitHub Pages.<br><a href='https://jarshinjs.github.io/password-strength-checker/' target='_blank'>\uD83C\uDF10 Try live \u2192</a>&nbsp;&nbsp;<a href='https://github.com/JarshinJS' target='_blank'>\uD83D\uDC19 Code \u2192</a><br><br>\uD83C\uDF7D\uFE0F <strong>3. Platter to Purpose</strong><br>Django full-stack food donation platform. Connects hotels with orphanages to reduce waste. Deployed on Render.<br><a href='https://platter-to-purpose.onrender.com' target='_blank'>\uD83C\uDF10 See live \u2192</a>&nbsp;&nbsp;<a href='https://github.com/JarshinJS' target='_blank'>\uD83D\uDC19 Code \u2192</a><br><br>\ud83d\udccc Need details on any project? Just ask!"
+      reply: "🚀 <strong>Featured Projects:</strong><br><br>📂 <strong>1. Personal Developer Portfolio</strong> (This Site!)<br>Bootstrap 5 + Vanilla JS + AOS animations. Features: typing effect, skill bars, dark mode, AI chatbot, contact form.<br><a href='#home' onclick='window.scrollTo(0,0)'>↑ Scroll to top</a><br><br>🔐 <strong>2. Password Generator & Strength Checker</strong><br>Pure JavaScript real-time password validator. Zero dependencies, fast, deployed on GitHub Pages.<br><a href='https://jarshinjs.github.io/password-strength-checker/' target='_blank'>🌐 Try live →</a>&nbsp;&nbsp;<a href='https://github.com/JarshinJS' target='_blank'>🐙 Code →</a><br><br>🍽️ <strong>3. Platform to Purpose</strong><br>Django full-stack community web platform. Connects users with social resources. Deployed on Render.<br><a href='https://platter-to-purpose.onrender.com' target='_blank'>🌐 See live →</a>&nbsp;&nbsp;<a href='https://github.com/JarshinJS' target='_blank'>🐙 Code →</a><br><br>📌 Need details on any project? Just ask!"
     },
 
     /* ===== PASSWORD CHECKER ===== */
     {
-      keys: ['password', 'password checker', 'password strength', 'strength checker'],
-      reply: "\uD83D\uDD10 <strong>Password Strength Checker</strong><br>A JavaScript tool that evaluates password strength in real-time with live visual feedback.<br><br><a href='https://jarshinjs.github.io/password-strength-checker/' target='_blank'>\uD83C\uDF10 Try the live demo \u2192</a>&nbsp;&nbsp;<a href='https://github.com/JarshinJS' target='_blank'>\uD83D\uDC19 GitHub \u2192</a>"
+      keys: ['password', 'password generator', 'password checker', 'password strength', 'strength checker'],
+      reply: "🔐 <strong>Password Generator & Strength Checker</strong><br>A client-side app generating secure passwords that evaluates password strength in real-time with live visual feedback.<br><br><a href='https://jarshinjs.github.io/password-strength-checker/' target='_blank'>🌐 Try the live demo →</a>&nbsp;&nbsp;<a href='https://github.com/JarshinJS' target='_blank'>🐙 GitHub →</a>"
     },
-
-    /* ===== PLATTER TO PURPOSE ===== */
+    /* ===== PLATFORM TO PURPOSE ===== */
     {
-      keys: ['platter', 'platter to purpose', 'food', 'donation', 'orphanage', 'hotel', 'food waste', 'render'],
-      reply: "\uD83C\uDF7D\uFE0F <strong>Platter to Purpose</strong><br>A Django-based food donation platform connecting hotels with orphanages to eliminate food waste.<br><br><a href='https://platter-to-purpose.onrender.com' target='_blank'>\uD83C\uDF10 See the live site \u2192</a>&nbsp;&nbsp;<a href='https://github.com/JarshinJS' target='_blank'>\uD83D\uDC19 GitHub \u2192</a>"
+      keys: ['platform', 'platform to purpose', 'platter', 'platter to purpose', 'food', 'donation', 'orphanage', 'hotel', 'food waste', 'render'],
+      reply: "🍽️ <strong>Platform to Purpose</strong><br>A full-stack community web platform connecting users with social resources using Python/Django backend and dynamic JS front-end.<br><br><a href='https://platter-to-purpose.onrender.com' target='_blank'>🌐 See the live site →</a>&nbsp;&nbsp;<a href='https://github.com/JarshinJS' target='_blank'>🐙 GitHub →</a>"
     },
 
     /* ===== THIS PORTFOLIO ===== */
     {
       keys: ['portfolio website', 'this site', 'this portfolio', 'this page', 'your website', 'this website'],
-      reply: "\uD83D\uDCC1 <strong>Portfolio Website</strong> \u2014 This very site! Built with Bootstrap 5, Vanilla JavaScript, AOS animations, typing effect, animated skill bars, project cards, certifications, and this AI chatbot! \uD83E\uDD16"
+      reply: "📂 <strong>Personal Developer Portfolio</strong> — This very site! Built with Bootstrap 5, Vanilla JavaScript, AOS animations, typing effect, animated skill bars, project cards, certifications, and this AI chatbot! 🤖"
     },
 
     /* ===== LIVE DEMOS ===== */
     {
       keys: ['live demo', 'live site', 'demo link', 'deployed', 'hosting', 'hosted', 'url', 'website link', 'view project', 'see demo'],
-      reply: "\uD83C\uDF10 <strong>Live Demos:</strong><br>\u2022 <a href='https://jarshinjs.github.io/password-strength-checker/' target='_blank'>Password Strength Checker</a><br>\u2022 <a href='https://platter-to-purpose.onrender.com' target='_blank'>Platter to Purpose</a>"
+      reply: "🌐 <strong>Live Demos:</strong><br>• <a href='https://jarshinjs.github.io/password-strength-checker/' target='_blank'>Password Generator & Strength Checker</a><br>• <a href='https://platter-to-purpose.onrender.com' target='_blank'>Platform to Purpose</a>"
     },
 
     /* ===== CERTIFICATIONS ===== */
     {
       keys: ['certification', 'certifications','certificate', 'credential', 'achievement', 'award', 'certified', 'credentials', 'badge', 'accomplishment'],
-      reply: "\uD83C\uDFC6 <strong>Certifications:</strong><br><br>\uD83D\uDCDC <strong>Professional Certification</strong> \u2014 Industry-recognized credential validating technical expertise and skills.<br><br>\u26A1 <strong>Electra Hackathon</strong> \u2014 Certificate of Participation for competing in the Electra hackathon.<br><br>\uD83C\uDF86 <strong>MIT Certificate</strong> \u2014 Professional certification from MIT validating advanced technical knowledge."
+      reply: "🏆 <strong>Certifications:</strong><br><br>📜 <strong>Professional Certification</strong> — Industry-recognized credential validating technical expertise and skills.<br><br>⚡ <strong>Electra Hackathon</strong> — Certificate of Participation for competing in the Electra hackathon.<br><br>🎓 <strong>MIT Certificate</strong> — Professional certification from MIT validating advanced technical knowledge."
     },
 
     /* ===== MIT CERTIFICATE ===== */
     {
       keys: ['mit', 'mit certificate', 'mit cert', 'massachusetts institute of technology'],
-      reply: "\uD83C\uDF86 <strong>MIT Certificate</strong><br>Jarshin holds a professional certification from MIT (Massachusetts Institute of Technology) that validates advanced technical knowledge and expertise in cutting-edge technologies.<br><br>This credential demonstrates commitment to continuous learning and mastery of complex technical concepts!"
+      reply: "🎓 <strong>MIT Certificate</strong><br>Jarshin holds a professional certification from MIT (Massachusetts Institute of Technology) that validates advanced technical knowledge and expertise in cutting-edge technologies.<br><br>This credential demonstrates commitment to continuous learning and mastery of complex technical concepts!"
     },
 
     /* ===== HACKATHON ===== */
     {
       keys: ['hackathon', 'electra', 'electra hackathon', 'competition', 'event', 'participate', 'compete'],
-      reply: "\u26A1 Jarshin participated in the <strong>Electra Hackathon</strong> and earned a Certificate of Participation. He loves competitive coding and building products under time pressure! \uD83D\uDCA1"
+      reply: "⚡ Jarshin participated in the <strong>Electra Hackathon</strong> and earned a Certificate of Participation. He loves competitive coding and building products under time pressure! 💡"
     },
 
     /* ===== EDUCATION ===== */
     {
-      keys: ['education', 'study', 'college', 'degree', 'university', 'school', 'academic', 'qualification', 'student', 'course', 'major', 'stream', 'class', 'cse', 'it', 'computer science', 'information technology'],
-      reply: "\uD83C\uDF93 Jarshin is pursuing a degree in <strong>Computer Science / Information Technology</strong> \u2014 with a strong focus on full-stack web development and IoT. He continuously learns through real-world projects and open-source contributions."
+      keys: ['education', 'study', 'college', 'degree', 'university', 'school', 'academic', 'qualification', 'student', 'course', 'major', 'stream', 'class', 'cse', 'it', 'computer science', 'information technology', 'bachelor', 'skcet'],
+      reply: "🎓 Jarshin is pursuing a Bachelor of Engineering in <strong>Computer Science and Engineering (IoT)</strong> at Sri Krishna College of Engineering and Technology, graduation expected in 2029. Coursework includes Data Structures, Web Technologies, DBMS, and more."
     },
 
     /* ===== PHONE / WHATSAPP ===== */
     {
       keys: ['phone', 'mobile', 'mobile number', 'mobilenumber', 'phone number', 'phonenumber', 'number', 'call', 'whatsapp', 'whatsappnumber', 'wa', 'ring', 'dial', 'telephone', 'cell', 'contact number', 'contactnumber', 'reach by phone', 'call him', 'whatsapp number', 'wa number', 'phone no', 'mob no'],
-      reply: "\uD83D\uDCF1 <strong>Phone & WhatsApp:</strong><br><strong>+91 93455 11293</strong><br><br><a href='https://wa.me/919345511293' target='_blank'>\uD83D\uDCAC Open WhatsApp Chat \u2192</a>"
+      reply: "📱 <strong>Phone & WhatsApp:</strong><br><strong>+91 93455 11293</strong><br><br><a href='https://wa.me/919345511293' target='_blank'>💬 Open WhatsApp Chat →</a>"
     },
 
     /* ===== EMAIL ===== */
     {
       keys: ['email', 'mail', 'gmail', 'inbox', 'e-mail', 'send mail', 'send email', 'email address', 'mail id', 'email id', 'email him', 'write to', 'drop a mail'],
-      reply: "\uD83D\uDCE7 <strong>Email:</strong> <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a><br><br>Feel free to drop a message anytime \u2014 Jarshin typically responds within 24 hours!"
+      reply: "📧 <strong>Email:</strong> <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a><br><br>Feel free to drop a message anytime — Jarshin typically responds within 24 hours!"
     },
 
     /* ===== LINKEDIN ===== */
     {
       keys: ['linkedin', 'linked in', 'professional network', 'linkedin profile', 'linkedin link'],
-      reply: "\uD83D\uDCBC <strong>LinkedIn:</strong><br><a href='https://www.linkedin.com/in/jarshinjs/' target='_blank'>linkedin.com/in/jarshinjs</a><br><br>Connect with Jarshin for professional networking, job opportunities & collaborations! \uD83E\uDD1D"
+      reply: "💼 <strong>LinkedIn:</strong><br><a href='https://www.linkedin.com/in/jarshinjs/' target='_blank'>linkedin.com/in/jarshinjs</a><br><br>Connect with Jarshin for professional networking, job opportunities & collaborations! 🤝"
     },
 
     /* ===== ALL SOCIAL MEDIA ===== */
     {
       keys: ['social', 'social media', 'socialmedia', 'socials', 'handle', 'profile', 'account', 'find him', 'follow', 'all links', 'all contact', 'online presence', 'find online', 'all social', 'all profiles', 'my profiles'],
-      reply: "\uD83C\uDF10 <strong>All of Jarshin's Profiles:</strong><br><br>\uD83D\uDCBC LinkedIn: <a href='https://www.linkedin.com/in/jarshinjs/' target='_blank'>linkedin.com/in/jarshinjs</a><br>\uD83D\uDC19 GitHub: <a href='https://github.com/JarshinJS' target='_blank'>github.com/JarshinJS</a><br>\uD83D\uDCE7 Email: <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a><br>\uD83D\uDCF1 WhatsApp: <a href='https://wa.me/919345511293' target='_blank'>+91 93455 11293</a>"
+      reply: "🌐 <strong>All of Jarshin's Profiles:</strong><br><br>💼 LinkedIn: <a href='https://www.linkedin.com/in/jarshinjs/' target='_blank'>linkedin.com/in/jarshinjs</a><br>🐙 GitHub: <a href='https://github.com/JarshinJS' target='_blank'>github.com/JarshinJS</a><br>📧 Email: <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a><br>📱 WhatsApp: <a href='https://wa.me/919345511293' target='_blank'>+91 93455 11293</a>"
     },
 
     /* ===== ALL CONTACT ===== */
     {
       keys: ['contact', 'reach', 'get in touch', 'getintouch', 'connect with', 'how to contact', 'howtocotact', 'contact him', 'contact you', 'contact details', 'contactdetails', 'contact info', 'contactinfo', 'reach out', 'talk to', 'speak to', 'message him', 'get hold', 'communicate'],
-      reply: "\uD83D\uDCEC <strong>All Ways to Reach Jarshin:</strong><br><br>\uD83D\uDCF1 WhatsApp: <a href='https://wa.me/919345511293' target='_blank'>+91 93455 11293</a><br>\uD83D\uDCE7 Email: <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a><br>\uD83D\uDCBC LinkedIn: <a href='https://www.linkedin.com/in/jarshinjs/' target='_blank'>linkedin.com/in/jarshinjs</a><br>\uD83D\uDC19 GitHub: <a href='https://github.com/JarshinJS' target='_blank'>github.com/JarshinJS</a><br><br>Or fill the <strong>Contact Form</strong> on this page!"
+      reply: "📫 <strong>All Ways to Reach Jarshin:</strong><br><br>📱 WhatsApp: <a href='https://wa.me/919345511293' target='_blank'>+91 93455 11293</a><br>📧 Email: <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a><br>💼 LinkedIn: <a href='https://www.linkedin.com/in/jarshinjs/' target='_blank'>linkedin.com/in/jarshinjs</a><br>🐙 GitHub: <a href='https://github.com/JarshinJS' target='_blank'>github.com/JarshinJS</a><br><br>Or fill the <strong>Contact Form</strong> on this page!"
     },
 
     /* ===== RESUME ===== */
     {
       keys: ['resume', 'cv', 'download', 'curriculum', 'curriculum vitae', 'download resume', 'get resume'],
-      reply: "\uD83D\uDCC4 Click the <strong>Resume</strong> button in the hero section at the top of this page to download Jarshin's latest CV for free!"
+      reply: "📄 Click the <strong>Resume</strong> button in the hero section at the top of this page to download Jarshin's latest CV for free!"
     },
 
     /* ===== HIRE / COLLABORATE ===== */
     {
       keys: ['hire', 'freelance', 'available', 'job', 'opportunity', 'internship', 'work with', 'collaborate', 'contract', 'open to work', 'looking for work', 'working together', 'partner', 'team up', 'recruit'],
-      reply: "\uD83D\uDCBC Jarshin is <strong>open to opportunities</strong> \u2014 freelance projects, full-time roles & internships!<br><br>\uD83D\uDCF1 <a href='https://wa.me/919345511293' target='_blank'>WhatsApp: +91 93455 11293</a><br>\uD83D\uDCE7 <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a><br>\uD83D\uDCBC <a href='https://www.linkedin.com/in/jarshinjs/' target='_blank'>LinkedIn</a>"
+      reply: "💼 Jarshin is <strong>open to opportunities</strong> — freelance projects, full-time roles & internships!<br><br>📱 <a href='https://wa.me/919345511293' target='_blank'>WhatsApp: +91 93455 11293</a><br>📧 <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a><br>💼 <a href='https://www.linkedin.com/in/jarshinjs/' target='_blank'>LinkedIn</a>"
     },
 
     /* ===== WHY HIRE ME ===== */
     {
       keys: ['why hire', 'why should i hire', 'why hire you', 'why hire him', 'why should we hire', 'should i hire', 'reason to hire', 'reason for hiring', 'what makes you special', 'what makes him special', 'unique', 'value', 'why you', 'why him', 'convince me', 'impress me', 'stand out', 'different from others', 'why choose', 'why choose you', 'why choose him', 'what can you offer', 'what does he offer', 'strengths', 'strong points', 'best quality', 'qualification', 'fit for'],
-      reply: "\uD83D\uDCA1 <strong>Why Hire Jarshin?</strong><br><br>\u2705 <strong>Full-Stack, End-to-End</strong> \u2014 From pixel-perfect UIs to robust Django backends, Jarshin ships complete products \u2014 no handoffs needed.<br><br>\uD83D\uDE80 <strong>Proven, Shipped Work</strong> \u2014 Real deployed projects like <em>Platter to Purpose</em> (live on Render) and a <em>Password Strength Checker</em> (live on GitHub Pages) \u2014 not just toy demos.<br><br>\uD83D\uDD0C <strong>IoT + Web Breadth</strong> \u2014 Rare combination of hardware & software thinking. Jarshin bridges both worlds to build smarter solutions.<br><br>\u26A1 <strong>Fast Learner, Driven Builder</strong> \u2014 Certified, hackathon-tested, and constantly levelling up through hands-on projects.<br><br>\uD83E\uDD1D <strong>Clean Code & Collaboration</strong> \u2014 Git-disciplined, Bootstrap-fluent, and easy to work with in any team setup.<br><br>\uD83D\uDCEC Ready to bring value from day one. Reach out:<br>\uD83D\uDCF1 <a href='https://wa.me/919345511293' target='_blank'>+91 93455 11293</a> \u00B7 <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a>"
+      reply: "💡 <strong>Why Hire Jarshin?</strong><br><br>✅ <strong>Full-Stack, End-to-End</strong> — From pixel-perfect UIs to robust Django backends, Jarshin ships complete products — no handoffs needed.<br><br>🚀 <strong>Proven, Shipped Work</strong> — Real deployed projects like <em>Platform to Purpose</em> (live on Render) and a <em>Password Generator & Strength Checker</em> (live on GitHub Pages) — not just toy demos.<br><br>🔌 <strong>IoT + Web Breadth</strong> — Rare combination of hardware & software thinking. Jarshin bridges both worlds to build smarter solutions.<br><br>⚡ <strong>Fast Learner, Driven Builder</strong> — Certified, hackathon-tested, and constantly levelling up through hands-on projects.<br><br>🤝 <strong>Clean Code & Collaboration</strong> — Git-disciplined, Bootstrap-fluent, and easy to work with in any team setup.<br><br>📫 Ready to bring value from day one. Reach out:<br>📱 <a href='https://wa.me/919345511293' target='_blank'>+91 93455 11293</a> · <a href='mailto:jarshin07@gmail.com'>jarshin07@gmail.com</a>"
     },
 
     /* ===== EXPERIENCE ===== */
     {
       keys: ['experience', 'year', 'senior', 'junior', 'intern', 'professional', 'background', 'work history'],
-      reply: "\uD83C\uDF31 Jarshin is an emerging <strong>Full-Stack Developer</strong> with real-world hands-on experience in web apps, IoT projects, and open-source tools. He's constantly growing and building!"
+      reply: "🌱 Jarshin is an emerging <strong>Full-Stack Developer</strong> with real-world hands-on experience in web apps, IoT projects, and open-source tools. He's constantly growing and building!"
     },
 
     /* ===== HOBBY / INTEREST ===== */
     {
       keys: ['hobby', 'interest', 'passion', 'like', 'love', 'enjoy', 'free time', 'outside work', 'personal interest'],
-      reply: "\uD83D\uDCA1 Beyond code, Jarshin is passionate about <strong>IoT tinkering</strong>, open-source contribution, and turning ideas into live products that solve real-world problems!"
+      reply: "💡 Beyond code, Jarshin is passionate about <strong>IoT tinkering</strong>, open-source contribution, and turning ideas into live products that solve real-world problems!"
     },
 
     /* ===== DARK MODE ===== */
     {
       keys: ['dark mode', 'light mode', 'theme', 'night mode', 'dark theme', 'light theme', 'switch theme'],
-      reply: "\uD83C\uDF19 Toggle <strong>dark/light mode</strong> using the moon or sun icon in this chat header!"
+      reply: "🌃 Toggle <strong>dark/light mode</strong> using the moon or sun icon in this chat header!"
     },
 
     /* ===== PROJECT TECH STACK - PASSWORD CHECKER ===== */
     {
       keys: ['password checker tech', 'password strength technology', 'password checker built with', 'password checker how made', 'password strength checker technologies'],
-      reply: "\uD83D\uDD10 <strong>Password Strength Checker Tech Stack:</strong><br>\u2022 <strong>Vanilla JavaScript</strong> \u2014 Zero dependencies, pure JS for real-time validation<br>\u2022 <strong>DOM Manipulation</strong> \u2014 Dynamic UI updates as you type<br>\u2022 <strong>HTML5 & CSS3</strong> \u2014 Semantic markup with responsive design<br>\u2022 <strong>GitHub Pages</strong> \u2014 Deployed & live for instant access<br><br>No frameworks bloat \u2014 just fast, efficient code! \u26A1"
+      reply: "🔐 <strong>Password Generator & Strength Checker Tech Stack:</strong><br>• <strong>Vanilla JavaScript</strong> — Zero dependencies, pure JS for real-time validation<br>• <strong>DOM Manipulation</strong> — Dynamic UI updates as you type<br>• <strong>HTML5 & CSS3</strong> — Semantic markup with responsive design<br>• <strong>GitHub Pages</strong> — Deployed & live for instant access<br><br>No frameworks bloat — just fast, efficient code! ⚡"
     },
 
     /* ===== SHOW ME CODE ===== */
     {
       keys: ['code', 'github', 'source', 'open source', 'show code', 'view code', 'code on github', 'repository', 'repo', 'coding style'],
-      reply: "\uD83D\uDC19 <strong>All Code is Open Source!</strong><br><br>\ud83d\udeaa <a href='https://github.com/JarshinJS' target='_blank'>\ud83d\udc19 Visit GitHub \u2192</a><br><br>See Jarshin's coding style, version control practices, and all project repositories. Follow best practices like meaningful commits, clear comments, and clean code structure."
+      reply: "🐙 <strong>All Code is Open Source!</strong><br><br>🚪 <a href='https://github.com/JarshinJS' target='_blank'>🐙 Visit GitHub →</a><br><br>See Jarshin's coding style, version control practices, and all project repositories. Follow best practices like meaningful commits, clear comments, and clean code structure."
     },
 
     /* ===== RESUME DOWNLOAD ===== */
     {
       keys: ['resume', 'cv', 'download', 'curriculum', 'curriculum vitae', 'download resume', 'get resume', 'download cv', 'pdf'],
-      reply: "\uD83D\uDCC4 <strong>Download Resume:</strong><br><br>Look for the <strong>\"Resume\"</strong> button in the hero section (top of page) with the download icon. Click it to get Jarshin's latest CV as a PDF!"
+      reply: "📄 <strong>Download Resume:</strong><br><br>Look for the <strong>\"Resume\"</strong> button in the hero section (top of page) with the download icon. Click it to get Jarshin's latest CV as a PDF!"
     },
 
     /* ===== QUICK PORTFOLIO TIPS ===== */
     {
       keys: ['tip', 'guide', 'how to', 'advice', 'suggestion', 'recommend', 'what should', 'where to', 'start here', 'first time'],
-      reply: "\ud83d\udca1 <strong>Quick Tips for Exploring:</strong><br><br>\ud83c\udf50 <strong>First Time Here?</strong><br>1. Check the <strong>Hero Section</strong> \u2014 See Jarshin's animated title & download CV<br>2. Scroll through <strong>Skills</strong> \u2014 Watch the skill bars animate!<br>3. Explore <strong>Projects</strong> \u2014 Click \"Live Demo\" to see live apps<br>4. View <strong>Certifications</strong> \u2014 See credentials & achievements<br><br>\ud83d\udd0c <strong>Want More?</strong><br>\ud83d\udcf1 Contact via WhatsApp or email<br>\ud83d\udc19 Check the code on GitHub<br>\uD83c\uDCBC Connect on LinkedIn<br>\ud83d\ude4b Use this chatbot for questions!<br><br>Enjoy exploring! \ud83d\ude0a"
+      reply: "💡 <strong>Quick Tips for Exploring:</strong><br><br>🍔 <strong>First Time Here?</strong><br>1. Check the <strong>Hero Section</strong> — See Jarshin's animated title & download CV<br>2. Scroll through <strong>Skills</strong> — Watch the skill bars animate!<br>3. Explore <strong>Projects</strong> — Click \"Live Demo\" to see live apps<br>4. View <strong>Certifications</strong> — See credentials & achievements<br><br>🔌 <strong>Want More?</strong><br>📱 Contact via WhatsApp or email<br>🐙 Check the code on GitHub<br>💼 Connect on LinkedIn<br>🙋 Use this chatbot for questions!<br><br>Enjoy exploring! 😊"
     },
-
-    /* ===== PROJECT TECH STACK - PLATTER TO PURPOSE ===== */
+    /* ===== PROJECT TECH STACK - PLATFORM TO PURPOSE ===== */
     {
-      keys: ['platter to purpose tech', 'platter tech stack', 'platter technologies', 'platter built with', 'food donation platform tech', 'p2p tech'],
-      reply: "\uD83C\uDF7D\uFE0F <strong>Platter to Purpose Tech Stack:</strong><br>\u2022 <strong>Django + Python</strong> \u2014 Robust backend framework<br>\u2022 <strong>SQLite / PostgreSQL</strong> \u2014 Relational database for storing users & donations<br>\u2022 <strong>Django REST Framework</strong> \u2014 RESTful API design<br>\u2022 <strong>HTML/CSS + Bootstrap</strong> \u2014 Responsive frontend<br>\u2022 <strong>Render</strong> \u2014 Deployed & live on the cloud<br><br>Full-stack impact solving real social problems! \uD83C\uDF10"
+      keys: ['platform to purpose tech', 'platform tech stack', 'platform technologies', 'platform built with', 'community web platform tech', 'p2p tech'],
+      reply: "🍽️ <strong>Platform to Purpose Tech Stack:</strong><br>• <strong>Django + Python</strong> — Robust backend framework<br>• <strong>SQLite / PostgreSQL</strong> — Relational database for storing users & donations<br>• <strong>Django REST Framework</strong> — RESTful API design<br>• <strong>HTML/CSS + Bootstrap</strong> — Responsive frontend<br>• <strong>Render</strong> — Deployed & live on the cloud<br><br>Full-stack impact solving real social problems! 🌐"
     },
 
     /* ===== PROJECT TECH STACK - PORTFOLIO ===== */
     {
       keys: ['portfolio tech', 'portfolio stack', 'portfolio built with', 'portfolio technologies', 'portfolio how made'],
-      reply: "\uD83D\uDCC1 <strong>This Portfolio's Tech Stack:</strong><br>\u2022 <strong>HTML5</strong> \u2014 Semantic, accessible structure<br>\u2022 <strong>CSS3</strong> \u2014 Custom styling with animations & gradients<br>\u2022 <strong>Vanilla JavaScript</strong> \u2014 Typing effect, skill counters, dark mode, AI chatbot<br>\u2022 <strong>Bootstrap 5</strong> \u2014 Responsive grid & components<br>\u2022 <strong>AOS (Animate On Scroll)</strong> \u2014 Smooth scroll animations<br>\u2022 <strong>Web3Forms</strong> \u2014 Contact form backend<br>\u2022 <strong>GitHub Pages</strong> \u2014 Hosting<br><br>A modern, interactive, feature-rich portfolio built from the ground up! \uD83D\uDE80"
+      reply: "📂 <strong>This Portfolio's Tech Stack:</strong><br>• <strong>HTML5</strong> — Semantic, accessible structure<br>• <strong>CSS3</strong> — Custom styling with animations & gradients<br>• <strong>Vanilla JavaScript</strong> — Typing effect, skill counters, dark mode, AI chatbot<br>• <strong>Bootstrap 5</strong> — Responsive grid & components<br>• <strong>AOS (Animate On Scroll)</strong> — Smooth scroll animations<br>• <strong>Web3Forms</strong> — Contact form backend<br>• <strong>GitHub Pages</strong> — Hosting<br><br>A modern, interactive, feature-rich portfolio built from the ground up! 🚀"
     },
 
     /* ===== PORTFOLIO FEATURES ===== */
     {
       keys: ['portfolio features', 'what features does', 'features of site', 'site features', 'portfolio capabilities', 'what can i do on this site'],
-      reply: "\u2728 <strong>Portfolio Features:</strong><br>\u2022 <strong>Typing Effect</strong> \u2014 Animated title text that cycles through roles<br>\u2022 <strong>Animated Skill Bars</strong> \u2014 Visual skill proficiency with counters<br>\u2022 <strong>Project Cards</strong> \u2014 Live demo & GitHub links for every project<br>\u2022 <strong>Certification Gallery</strong> \u2014 Achievement showcase with credentials<br>\u2022 <strong>Scroll Animations</strong> \u2014 Smooth AOS fade/zoom effects on scroll<br>\u2022 <strong>Dark/Light Mode</strong> \u2014 Toggle in the chatbot header<br>\u2022 <strong>Contact Form</strong> \u2014 Direct messaging via Web3Forms<br>\u2022 <strong>AI Chatbot</strong> \u2014 Me! Ask anything about Jarshin! \uD83E\uDD16<br>\u2022 <strong>Mobile Responsive</strong> \u2014 Perfect on all screen sizes<br>\u2022 <strong>Social Integration</strong> \u2014 Quick links to all profiles"
+      reply: "✨ <strong>Portfolio Features:</strong><br>• <strong>Typing Effect</strong> — Animated title text that cycles through roles<br>• <strong>Animated Skill Bars</strong> — Visual skill proficiency with counters<br>• <strong>Project Cards</strong> — Live demo & GitHub links for every project<br>• <strong>Certification Gallery</strong> — Achievement showcase with credentials<br>• <strong>Scroll Animations</strong> — Smooth AOS fade/zoom effects on scroll<br>• <strong>Dark/Light Mode</strong> — Toggle in the chatbot header<br>• <strong>Contact Form</strong> — Direct messaging via Web3Forms<br>• <strong>AI Chatbot</strong> — Me! Ask anything about Jarshin! 🤖<br>• <strong>Mobile Responsive</strong> — Perfect on all screen sizes<br>• <strong>Social Integration</strong> — Quick links to all profiles"
     },
 
     /* ===== PORTFOLIO NAVIGATION ===== */
     {
       keys: ['how to navigate', 'how to use', 'navigate portfolio', 'scroll', 'sections', 'menu', 'navbar', 'navigation', 'where is', 'find section', 'go to', 'explore portfolio'],
-      reply: "\uD83D\uDDE3\uFE0F <strong>How to Explore:</strong><br><br>\uD83D\uDD17 <strong>Navbar</strong> at the top has links to all main sections:<br>\u2022 <strong>Home</strong> \u2014 Intro & typing effect<br>\u2022 <strong>About</strong> \u2014 Technical skills & proficiency bars<br>\u2022 <strong>Projects</strong> \u2014 Featured work with live links<br>\u2022 <strong>Contact</strong> \u2014 Contact form & social links<br><br>\uD83D\uDC47 Or just scroll down to explore everything!<br><br>\uD83E\uDD16 Ask me specific questions for deep dives into any section!"
+      reply: "🗣️ <strong>How to Explore:</strong><br><br>🔗 <strong>Navbar</strong> at the top has links to all main sections:<br>• <strong>Home</strong> — Intro & typing effect<br>• <strong>About</strong> — Technical skills & proficiency bars<br>• <strong>Projects</strong> — Featured work with live links<br>• <strong>Contact</strong> — Contact form & social links<br><br>👇 Or just scroll down to explore everything!<br><br>🤖 Ask me specific questions for deep dives into any section!"
     },
 
     /* ===== WHY FULL STACK ===== */
     {
       keys: ['why full stack', 'full stack benefits', 'advantages of full stack', 'full stack programmer', 'end to end'],
-      reply: "\uD83D\uDEE0\uFE0F <strong>Why Full-Stack?</strong><br><br>Jarshin can:\u2022 Prototype complete ideas solo \u2014 no waiting for other team members<br>\u2022 Understand the full product flow \u2014 from user interface to database<br>\u2022 Optimize the entire pipeline \u2014 frontend performance + backend efficiency<br>\u2022 Ship faster \u2014 fewer handoffs, smoother communication<br>\u2022 Build truly integrated solutions \u2014 like Platter to Purpose!<br><br>Full-stack = complete control over quality & delivery! \u26A1"
+      reply: "🛠️ <strong>Why Full-Stack?</strong><br><br>Jarshin can:• Prototype complete ideas solo — no waiting for other team members<br>• Understand the full product flow — from user interface to database<br>• Optimize the entire pipeline — frontend performance + backend efficiency<br>• Ship faster — fewer handoffs, smoother communication<br>• Build truly integrated solutions — like Platform to Purpose!<br><br>Full-stack = complete control over quality & delivery! ⚡"
     },
 
     /* ===== PORTFOLIO HIGHLIGHTS ===== */
     {
       keys: ['highlights', 'best part', 'standout', 'impressive', 'showcase', 'what should i see', 'what is impressive', 'most important', 'key achievements'],
-      reply: "\ud83c\udf1f <strong>Portfolio Highlights:</strong><br><br>\ud83d\ude80 <strong>Platter to Purpose</strong> \u2014 A live Django app solving real-world food waste. Shows full-stack chops + social impact.<br><br>\ud83d\udd10 <strong>Password Checker</strong> \u2014 Pure JS with zero dependencies. Shows JavaScript mastery & live deployment.<br><br>\ud83e\udd16 <strong>This AI Chatbot</strong> \u2014 Built from scratch! Shows JavaScript prowess, NLP thinking, & attention to user experience.<br><br>\ud83c\udfc6 <strong>MIT Certificate</strong> \u2014 Proof of advanced technical knowledge & continuous learning commitment.<br><br>\ud83d\udcc1 <strong>The Portfolio Itself</strong> \u2014 Interactive, modern, responsive. Built with care using Bootstrap, AOS animations & custom CSS. Shows design thinking!"
+      reply: "🌟 <strong>Portfolio Highlights:</strong><br><br>🚀 <strong>Platform to Purpose</strong> — A live Django app solving real-world food waste. Shows full-stack chops + social impact.<br><br>🔐 <strong>Password Generator & Strength Checker</strong> — Pure JS with zero dependencies. Shows JavaScript mastery & live deployment.<br><br>🤖 <strong>This AI Chatbot</strong> — Built from scratch! Shows JavaScript prowess, NLP thinking, & attention to user experience.<br><br>🏆 <strong>MIT Certificate</strong> — Proof of advanced technical knowledge & continuous learning commitment.<br><br>📁 <strong>The Portfolio Itself</strong> — Interactive, modern, responsive. Built with care using Bootstrap, AOS animations & custom CSS. Shows design thinking!"
     },
 
     /* ===== ASK ANYTHING ===== */
     {
       keys: ['ask', 'question', 'help', 'what can you', 'what can i ask', 'capabilities', 'what do you know', 'what can you help', 'what can you tell', 'anything', 'more info'],
-      reply: "\ud83e\udd17 <strong>I can help with:</strong><br>\ud83d\udcbc Skills \u2014 HTML, CSS, JS, Django, Git, GitHub, Bootstrap, IoT<br>\ud83d\ude80 Projects \u2014 Password Checker, Platter to Purpose, Portfolio<br>\ud83c\udfc6 Certifications \u2014 Professional, Electra Hackathon, MIT<br>\ud83d\udcc7 Education \u2014 Computer Science, self-taught developer<br>\ud83d\udcf1 Contact \u2014 Email, WhatsApp, LinkedIn, GitHub<br>\ud83d\udcbc Hiring \u2014 Freelance, internships, full-time opportunities<br>\ud83e\uddda Portfolio Features \u2014 Navigation, tech stack, design choices<br><br>Go ahead, ask away! Or pick a suggestion button below! \ud83d\ude0a"
+      reply: "🤗 <strong>I can help with:</strong><br>💼 Skills — HTML, CSS, JS, Django, Git, GitHub, Bootstrap, IoT<br>🚀 Projects — Password Generator & Strength Checker, Platform to Purpose, Portfolio<br>🏆 Certifications — Professional, Electra Hackathon, MIT<br>🎓 Education — Computer Science (IoT) at SKCET<br>📱 Contact — Email, WhatsApp, LinkedIn, GitHub<br>💼 Hiring — Freelance, internships, full-time opportunities<br>🧚 Portfolio Features — Navigation, tech stack, design choices<br><br>Go ahead, ask away! Or pick a suggestion button below! 😊"
     },
 
     /* ===== THANKS ===== */
@@ -389,7 +391,7 @@ toggle.addEventListener('click', () => {
     ['contactinfo', 'contact info'], ['getintouch', 'get in touch'],
     ['techstack', 'tech stack'], ['opensource', 'open source'],
     ['reachout', 'reach out'], ['linkedinprofile', 'linkedin profile'],
-    ['passwordchecker', 'password checker'], ['platterTopurpose', 'platter to purpose'],
+    ['passwordchecker', 'password checker'], ['platterTopurpose', 'platform to purpose'], ['platformTopurpose', 'platform to purpose'],
     ['portfoliofeatures', 'portfolio features'], ['whyfulstack', 'why full stack'],
     ['projectstech', 'project tech'], ['portfoliotech', 'portfolio tech']
   ];
@@ -570,7 +572,7 @@ toggle.addEventListener('click', () => {
       return `Here’s what I found in the portfolio:<br><br>${related.map((item) => `• ${item.snippet}`).join('<br>')}`;
     }
 
-    return `I can answer questions about everything on this portfolio: <strong>about</strong>, <strong>skills</strong>, <strong>projects</strong>, <strong>certifications</strong>, <strong>resume</strong>, <strong>contact</strong>, and <strong>social links</strong>. Try asking “Tell me about Platter to Purpose”, “What certifications does Jarshin have?”, or “How can I contact him?”`;
+    return `I can answer questions about everything on this portfolio: <strong>about</strong>, <strong>skills</strong>, <strong>projects</strong>, <strong>certifications</strong>, <strong>education</strong>, <strong>resume</strong>, <strong>contact</strong>, and <strong>social links</strong>. Try asking “Tell me about Platform to Purpose”, “What certifications does Jarshin have?”, or “How can I contact him?”`;
   }
 
   function getBotReply(text) {
