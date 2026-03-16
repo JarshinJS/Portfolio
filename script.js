@@ -1,5 +1,76 @@
 AOS.init({ once: true, duration: 700, easing: 'ease-out-quart', offset: 60 });
 
+// ===== Scroll-to-Top Button =====
+const scrollTopBtn = document.createElement('button');
+scrollTopBtn.id = 'scroll-to-top';
+scrollTopBtn.innerHTML = '<i class="bi bi-arrow-up"></i>';
+scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+document.body.appendChild(scrollTopBtn);
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// ===== Active Navbar Link on Scroll =====
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateActiveNavLink() {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (window.scrollY >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveNavLink);
+
+// ===== Form Validation & Feedback =====
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  const formInputs = contactForm.querySelectorAll('[required]');
+  
+  contactForm.addEventListener('submit', function(e) {
+    const isValid = Array.from(formInputs).every(input => input.checkValidity());
+    
+    if (!isValid) {
+      e.preventDefault();
+      formInputs.forEach(input => {
+        if (!input.checkValidity()) {
+          input.style.borderColor = '#ef4444';
+          input.addEventListener('input', function() {
+            if (this.checkValidity()) {
+              this.style.borderColor = '#10b981';
+            }
+          }, { once: true });
+        }
+      });
+    }
+  });
+}
+
 // Typing Effect
 const typedText = document.getElementById("typed-text");
 const texts = ["Web Developer Intern Aspirant", "Full-Stack Developer", "Django Specialist", "JavaScript Enthusiast", "IoT Innovator"];
@@ -653,7 +724,6 @@ darkModeToggles.forEach(toggle => {
 })();
 
 // Close Navbar on Click (Mobile)
-const navLinks = document.querySelectorAll('.nav-link');
 const navbarCollapse = document.getElementById('navbarNav');
 const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
 navLinks.forEach(link => {
@@ -661,5 +731,66 @@ navLinks.forEach(link => {
     if (navbarCollapse.classList.contains('show')) {
       bsCollapse.hide();
     }
+  });
+});
+
+// ===== Enhanced Interactions =====
+// Add smooth click feedback to all interactive elements
+document.addEventListener('click', e => {
+  const button = e.target.closest('button, a[href^="#"], .btn');
+  if (button && !button.closest('#chatbot-window')) {
+    button.style.transform = button.style.transform.replace('scale(1.', 'scale(0.').replace(')', ')') || 'scale(0.95)';
+    setTimeout(() => {
+      button.style.transform = '';
+    }, 150);
+  }
+});
+
+// ===== Skill Counter Enhanced =====
+const observerOptions = {
+  threshold: 0.3,
+  rootMargin: '0px'
+};
+
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+      const counter = entry.target.querySelector('.skill-counter');
+      const progressBar = entry.target.querySelector('.skill-progress');
+      
+      if (counter && progressBar) {
+        entry.target.classList.add('counted');
+        const target = +counter.dataset.target;
+        let count = 0;
+        
+        const countInterval = setInterval(() => {
+          count += Math.ceil(target / 50);
+          if (count >= target) {
+            counter.textContent = target;
+            clearInterval(countInterval);
+          } else {
+            counter.textContent = count;
+          }
+        }, 30);
+        
+        setTimeout(() => {
+          progressBar.style.width = progressBar.dataset.progress;
+        }, 200);
+      }
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.skill-card').forEach(card => {
+  skillObserver.observe(card);
+});
+
+// ===== Add active states to social links =====
+document.querySelectorAll('.social-icon').forEach(icon => {
+  icon.addEventListener('mouseenter', function() {
+    this.style.animation = 'none';
+  });
+  icon.addEventListener('mouseleave', function() {
+    this.style.animation = '';
   });
 });
