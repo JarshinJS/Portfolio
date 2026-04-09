@@ -120,7 +120,7 @@ function initNavbar() {
 }
 
 /* ============================================================
-   CONTACT FORM
+   CONTACT FORM — with client-side validation
    ============================================================ */
 function initContactForm() {
   const form = $('#contactForm');
@@ -133,12 +133,105 @@ function initContactForm() {
     form.appendChild(feedback);
   }
 
+  const nameEl    = $('#contact-name');
+  const emailEl   = $('#contact-email');
+  const messageEl = $('#contact-message');
+
+  const nameErr    = $('#contact-name-error');
+  const emailErr   = $('#contact-email-error');
+  const messageErr = $('#contact-message-error');
+
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  /* -- helpers -- */
+  function showFieldError(field, errorEl, msg) {
+    field.classList.add('invalid');
+    field.setAttribute('aria-invalid', 'true');
+    if (errorEl) {
+      errorEl.textContent = msg;
+      errorEl.classList.add('visible');
+    }
+  }
+
+  function clearFieldError(field, errorEl) {
+    field.classList.remove('invalid');
+    field.removeAttribute('aria-invalid');
+    if (errorEl) {
+      errorEl.textContent = '';
+      errorEl.classList.remove('visible');
+    }
+  }
+
+  function clearAllErrors() {
+    clearFieldError(nameEl, nameErr);
+    clearFieldError(emailEl, emailErr);
+    clearFieldError(messageEl, messageErr);
+  }
+
+  function validateForm() {
+    let valid = true;
+    clearAllErrors();
+
+    const name    = nameEl.value.trim();
+    const email   = emailEl.value.trim();
+    const message = messageEl.value.trim();
+
+    if (!name) {
+      showFieldError(nameEl, nameErr, 'Please enter your name.');
+      valid = false;
+    } else if (name.length < 2) {
+      showFieldError(nameEl, nameErr, 'Name must be at least 2 characters.');
+      valid = false;
+    }
+
+    if (!email) {
+      showFieldError(emailEl, emailErr, 'Please enter your email address.');
+      valid = false;
+    } else if (!EMAIL_RE.test(email)) {
+      showFieldError(emailEl, emailErr, 'Please enter a valid email address.');
+      valid = false;
+    }
+
+    if (!message) {
+      showFieldError(messageEl, messageErr, 'Please enter a message.');
+      valid = false;
+    } else if (message.length < 10) {
+      showFieldError(messageEl, messageErr, 'Message must be at least 10 characters.');
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  /* -- clear errors on input (real-time) -- */
+  [nameEl, emailEl, messageEl].forEach(field => {
+    if (!field) return;
+    const errorEl = field.id === 'contact-name'    ? nameErr
+                  : field.id === 'contact-email'   ? emailErr
+                  : messageErr;
+    on(field, 'input', () => clearFieldError(field, errorEl));
+  });
+
+  /* -- submit handler -- */
   on(form, 'submit', async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      /* Focus the first invalid field for accessibility */
+      const firstInvalid = form.querySelector('.invalid');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    /* Trim values before sending */
+    nameEl.value    = nameEl.value.trim();
+    emailEl.value   = emailEl.value.trim();
+    messageEl.value = messageEl.value.trim();
+
     const btn = form.querySelector('button[type="submit"]');
     const og  = btn ? btn.innerHTML : '';
 
-    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     feedback.className = 'form-feedback';
     feedback.style.display = 'none';
 
@@ -148,8 +241,9 @@ function initContactForm() {
 
       if (json.success || res.ok) {
         feedback.className = 'form-feedback success';
-        feedback.innerHTML = '<i class="bi bi-check-circle-fill"></i> Message sent successfully.';
+        feedback.innerHTML = '<i class="bi bi-check-circle-fill"></i> Message sent successfully!';
         form.reset();
+        clearAllErrors();
       } else {
         throw new Error('fail');
       }

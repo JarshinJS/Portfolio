@@ -798,6 +798,38 @@ a:hover { color: var(--apple-blue-hover); }
 
 .form-field textarea { resize: vertical; min-height: 120px; }
 
+/* Field-level validation errors */
+.form-field input.invalid,
+.form-field textarea.invalid {
+  border-color: #ff3b30;
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1);
+}
+
+.form-field input.invalid:focus,
+.form-field textarea.invalid:focus {
+  border-color: #ff3b30;
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.18);
+}
+
+.field-error {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #d30000;
+  min-height: 0;
+  margin-top: 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.25s var(--ease), max-height 0.3s var(--ease), margin-top 0.3s var(--ease);
+}
+
+.field-error.visible {
+  opacity: 1;
+  max-height: 40px;
+  margin-top: 6px;
+}
+
 /* Feedback toast */
 .form-feedback {
   margin-top: 14px;
