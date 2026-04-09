@@ -356,7 +356,29 @@ function initChatbot() {
     'iott':'iot',
     'softwre':'software','sofware':'software','softwar':'software',
     'algoritm':'algorithm','algorthm':'algorithm','alogrithm':'algorithm',
-    'databse':'database','datbase':'database','darabase':'database'
+    'databse':'database','datbase':'database','darabase':'database',
+    'repsonsive':'responsive','responsve':'responsive','responisve':'responsive',
+    'depllyment':'deployment','deployement':'deployment','deploment':'deployment','deplpyment':'deployment',
+    'securty':'security','secuirty':'security','secrity':'security','seurity':'security',
+    'perfomance':'performance','performace':'performance','preformance':'performance',
+    'accesibility':'accessibility','accessbility':'accessibility','accessibilty':'accessibility',
+    'authenication':'authentication','authenticaton':'authentication','authentcation':'authentication',
+    'freelncr':'freelancer','freelanser':'freelancer',
+    'rectjs':'react','reactt':'react','recat':'react','reatc':'react',
+    'nodjs':'node','nodee':'node',
+    'devloper':'developer','developr':'developer','develper':'developer','devlpr':'developer',
+    'portfoilo':'portfolio','portfollio':'portfolio','protofolio':'portfolio',
+    'coimbatroe':'coimbatore','coimbtor':'coimbatore','coimbatote':'coimbatore',
+    'motivaton':'motivation','motivatin':'motivation',
+    'availabilty':'availability','availablity':'availability',
+    'servcies':'services','servics':'services','serivces':'services',
+    'workflw':'workflow','wrokflow':'workflow',
+    'languag':'language','langauge':'language','languge':'language',
+    'desgin':'design','desgn':'design','deisgn':'design','desing':'design',
+    'mentro':'mentor','mentorr':'mentor',
+    'chalenge':'challenge','challange':'challenge','challeneg':'challenge',
+    'tutoral':'tutorial','tutoiral':'tutorial','tutoriel':'tutorial',
+    'pricng':'pricing','priicng':'pricing','priceing':'pricing'
   };
 
   /* -- WORD EXPANSION -- */
@@ -379,7 +401,25 @@ function initChatbot() {
     ['softskill','soft skills'],['interestarea','interest area'],
     ['personalinfo','personal info'],['aboutme','about me'],
     ['aboutyou','about you'],['telmeabout','tell me about'],
-    ['tellmeabout','tell me about'],['whatdoyoudo','what do you do']
+    ['tellmeabout','tell me about'],['whatdoyoudo','what do you do'],
+    ['remotewerk','remote work'],['remotework','remote work'],['workfromhome','work from home'],
+    ['howmuch','how much'],['howlong','how long'],['howfast','how fast'],
+    ['darkmode','dark mode'],['lightmode','light mode'],
+    ['devsetup','dev setup'],['codeeditor','code editor'],
+    ['futureplans','future plans'],['futuregoals','future goals'],
+    ['currentlylearning','currently learning'],['learningnow','learning now'],
+    ['bestproject','best project'],['topproject','top project'],
+    ['canibuild','can i build'],['buildfor','build for'],
+    ['freelancework','freelance work'],['parttime','part time'],
+    ['pairprogramming','pair programming'],['codereview','code review'],
+    ['tamilnadu','tamil nadu'],['southindia','south india'],
+    ['whyshould','why should'],['howcanhelp','how can help'],
+    ['goodmorning','good morning'],['goodnight','good night'],
+    ['goodevening','good evening'],['goodafternoon','good afternoon'],
+    ['progressivewebapp','progressive web app'],['serviceworker','service worker'],
+    ['machinelearning','machine learning'],['deeplearning','deep learning'],
+    ['artificialintelligence','artificial intelligence'],
+    ['builtwith','built with'],['madewith','made with'],['techstackused','tech stack used']
   ];
 
   /* -- KNOWLEDGE BASE -- */
@@ -460,7 +500,7 @@ function initChatbot() {
       reply:"<strong>Password Generator & Strength Checker</strong><br><br><strong>Problem:</strong> Users create weak passwords without feedback.<br><strong>Solution:</strong> Client-side JavaScript tool with real-time strength scoring.<br><strong>Impact:</strong> Makes security accessible, zero dependencies.<br><br><a href='https://jarshinjs.github.io/password-strength-checker/' target='_blank'>Live Demo</a> | <a href='https://github.com/JarshinJS' target='_blank'>GitHub</a>",
       topic:'projects' },
     { keys:['platter','platter to purpose','p2p','donation','orphanage','food waste','render','community','social impact','hackathon project','samhita'],
-      reply:"<strong>platter to Purpose</strong><br><br><strong>Problem:</strong> Communities need better workflows to route surplus resources.<br><strong>Solution:</strong> Full-stack Django platter built at the SamHita Hackathon.<br><strong>Impact:</strong> Live social-impact prototype showcasing end-to-end delivery.<br><br><a href='https://platter-to-purpose.onrender.com/' target='_blank'>Live Demo</a> | <a href='https://github.com/JarshinJS/platter-to-Purpose' target='_blank'>GitHub</a>",
+      reply:"<strong>platter to Purpose</strong><br><br><strong>Problem:</strong> Communities need better workflows to route surplus resources.<br><strong>Solution:</strong> Full-stack Django platter built at the SamHita Hackathon.<br><strong>Impact:</strong> Live social-impact prototype showcasing end-to-end delivery.<br><br><a href='https://platter-to-purpose.onrender.com/' target='_blank'>Live Demo</a> | <a href='https://github.com/JarshinJS/platter_to_purpose' target='_blank'>GitHub</a>",
       topic:'projects' },
     { keys:['portfolio','this site','this portfolio','this page','your website','this website','portfolio website','personal website','personal site'],
       reply:"<strong>This Portfolio</strong> - Built with semantic HTML5, Apple-inspired CSS design, vanilla JavaScript (including this AI chatbot!), and Bootstrap 5 for layout. Fully responsive and accessible.",
@@ -557,10 +597,303 @@ function initChatbot() {
       topic:'fun' },
     { keys:['weather','time','news','sports','movie','music','song','game','play'],
       reply:"I specialize in Jarshin's portfolio! For general questions, try Google. But ask me about <strong>skills</strong>, <strong>projects</strong>, or how to <strong>contact Jarshin</strong>!",
-      topic:'outofscope' }
+      topic:'outofscope' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Development Workflow & Process
+       ============================================================ */
+    { keys:['workflow','process','development process','how do you work','methodology','approach','sdlc','development cycle','development workflow'],
+      reply:"<strong>Development Workflow:</strong><br><br>1. <strong>Understand</strong> — Gather requirements & define scope<br>2. <strong>Design</strong> — Wireframes, UI/UX planning<br>3. <strong>Build</strong> — Clean, modular code with Git version control<br>4. <strong>Test</strong> — Manual & automated testing<br>5. <strong>Deploy</strong> — Ship to production (Render, GitHub Pages)<br>6. <strong>Iterate</strong> — Feedback-driven improvements<br><br>Every project follows this disciplined approach!",
+      topic:'workflow' },
+
+    { keys:['agile','scrum','kanban','sprint','standup','waterfall','lean','jira','trello','project management'],
+      reply:"Jarshin follows <strong>Agile principles</strong> — iterative development, frequent feedback, and working software over heavy documentation. Experienced with sprint-based workflows from hackathon environments where rapid delivery is essential.",
+      topic:'workflow' },
+
+    { keys:['testing','test','unit test','debug','debugging','bug','bugs','quality','qa','quality assurance','error handling','error','exception','try catch','fix bug','troubleshoot','troubleshooting'],
+      reply:"<strong>Testing & Debugging:</strong><br><br>- Manual testing across browsers & devices<br>- Console-based debugging & DevTools proficiency<br>- Error handling with try/catch patterns<br>- Django's built-in test framework familiarity<br>- Attention to edge cases & input validation<br><br>Clean code = fewer bugs!",
+      topic:'workflow' },
+
+    { keys:['deploy','deployment','ci cd','ci/cd','continuous','pipeline','devops','docker','containerization','cloud','aws','azure','gcp','heroku','netlify','vercel','render deploy','server','production'],
+      reply:"<strong>Deployment Experience:</strong><br><br>- <strong>Render</strong> — Django apps with PostgreSQL<br>- <strong>GitHub Pages</strong> — Static sites & JS tools<br>- Familiar with CI/CD concepts & automated deployments<br>- Learning containerization (Docker) & cloud platforms<br><br>Ships production-ready applications!",
+      topic:'deployment' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Design & UX
+       ============================================================ */
+    { keys:['design','ui','ux','ui ux','user interface','user experience','wireframe','mockup','prototype','figma','adobe','photoshop','canva','design tool','design skills'],
+      reply:"<strong>Design & UX:</strong><br><br>Jarshin builds with a <strong>design-first mindset</strong>:<br>- Clean, Apple-inspired aesthetic<br>- User-centered layouts with clear information hierarchy<br>- Responsive design for all screen sizes<br>- Accessibility-conscious implementation<br>- Smooth animations & micro-interactions<br><br>This portfolio itself showcases his design sensibility!",
+      topic:'design' },
+
+    { keys:['accessibility','a11y','screen reader','aria','wcag','accessible','disability','inclusive','inclusive design','keyboard navigation','alt text'],
+      reply:"<strong>Accessibility:</strong><br><br>Jarshin builds with accessibility in mind:<br>- Semantic HTML5 elements<br>- ARIA labels & roles<br>- Keyboard navigation support<br>- Alt text for images<br>- Color contrast compliance<br>- Screen reader-friendly content<br><br>Inclusive design is a priority, not an afterthought!",
+      topic:'design' },
+
+    { keys:['seo','search engine','google','ranking','meta','sitemap','crawl','index','page speed','core web vitals','lighthouse','page rank'],
+      reply:"<strong>SEO Knowledge:</strong><br><br>- Semantic HTML5 structure<br>- Proper meta tags & descriptions<br>- Fast page load times<br>- Mobile-first responsive design<br>- Clean URL structures<br>- Optimized images & lazy loading<br>- Structured heading hierarchy (H1 → H6)<br><br>This portfolio scores high on Lighthouse!",
+      topic:'design' },
+
+    { keys:['performance','speed','fast','slow','loading','load time','optimize','optimization','lazy load','minify','compress','cache','caching','bundle','webpack','vite','build tool'],
+      reply:"<strong>Performance Optimization:</strong><br><br>- Lazy loading for images & components<br>- Minimal dependencies (this portfolio has zero npm packages!)<br>- Efficient DOM manipulation<br>- CSS transitions over JS animations<br>- Optimized asset delivery<br>- IntersectionObserver for scroll effects<br><br>Speed is a feature, not an afterthought!",
+      topic:'design' },
+
+    { keys:['responsive','mobile friendly','mobile responsive','tablet','phone','screen size','breakpoint','breakpoints','mobile first','viewport','device','devices','cross browser','browser support','compatible','compatibility'],
+      reply:"<strong>Responsive Design:</strong><br><br>Every project Jarshin builds is <strong>fully responsive</strong>:<br>- Mobile-first approach<br>- Fluid typography & flexible grids<br>- Tested across devices & browsers<br>- Touch-friendly interactions<br>- Optimized for screens from 320px to 4K<br><br>Try resizing this page — everything adapts beautifully!",
+      topic:'design' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Security
+       ============================================================ */
+    { keys:['security','cybersecurity','cyber security','hacking','ethical hacking','penetration','pentest','vulnerability','secure','encryption','https','ssl','xss','csrf','sql injection','owasp','firewall','malware','virus','phishing','privacy','data protection'],
+      reply:"<strong>Security Awareness:</strong><br><br>- CSRF protection in Django apps<br>- Input validation & sanitization<br>- HTTPS enforcement<br>- Secure password practices (built a password strength checker!)<br>- Awareness of OWASP top vulnerabilities<br>- Interest in <strong>Cybersecurity & IoT security</strong><br><br>Security is woven into every project!",
+      topic:'security' },
+
+    { keys:['api key','token','secret key','access key','env','environment variable','config','configuration','credentials','authentication','auth','login','signup','register','oauth','jwt','session'],
+      reply:"<strong>Authentication & Security:</strong><br><br>- Django's built-in authentication system<br>- Session management & CSRF protection<br>- Environment variables for sensitive data<br>- API key management<br>- Understanding of OAuth & JWT concepts<br><br>Security-first approach in every project!",
+      topic:'security' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Learning & Growth
+       ============================================================ */
+    { keys:['learning','currently learning','what are you learning','studying now','future','goal','goals','plan','plans','roadmap','next','upcoming','aspire','aspiration','dream','ambition','vision','where do you see','five years','5 years','career goal','future plan','future goals'],
+      reply:"<strong>Currently Learning & Future Goals:</strong><br><br>- <strong>React.js</strong> — Modern component-based frontend<br>- <strong>Node.js</strong> — JavaScript backend ecosystem<br>- <strong>Docker</strong> — Containerization & DevOps<br>- <strong>Advanced IoT</strong> — Edge computing & smart systems<br>- <strong>Cloud Platforms</strong> — AWS/GCP deployment<br><br><strong>Goal:</strong> Become a versatile full-stack engineer building impactful products at scale.",
+      topic:'learning' },
+
+    { keys:['react','reactjs','react js','next','nextjs','next js','vue','vuejs','angular','svelte','component','jsx','virtual dom','hooks','state management','redux','framework comparison'],
+      reply:"<strong>Modern Frameworks:</strong><br><br>Jarshin is currently expanding into <strong>React.js</strong> and <strong>Next.js</strong>. His strong vanilla JavaScript foundation makes framework adoption natural.<br><br>Current stack: Django + vanilla JS (production-proven)<br>Learning: React ecosystem for component-based UIs<br><br>Strong fundamentals first, frameworks second!",
+      topic:'learning' },
+
+
+    { keys:['book','books','reading','read','resource','resources','tutorial','tutorials','course','courses','online learning','udemy','coursera','youtube','learn from','study material','documentation','docs','reference'],
+      reply:"<strong>Learning Resources:</strong><br><br>- Official documentation (MDN, Django Docs, Python Docs)<br>- YouTube tutorials & coding channels<br>- Hackathons for hands-on learning<br>- Open source project exploration on GitHub<br>- University coursework at SKCET<br>- Practice through building real projects<br><br>Jarshin believes in <strong>learning by building</strong>!",
+      topic:'learning' },
+
+    { keys:['motivation','inspire','inspired','inspiration','why coding','why programming','why developer','passion for','what drives','driven','purpose','reason','why tech','why computer science'],
+      reply:"<strong>What Drives Jarshin:</strong><br><br>The ability to turn ideas into working products that people actually use. From a hackathon prototype helping communities to a password tool making security accessible — <strong>building things that matter</strong> is the motivation.<br><br>Technology is the most powerful tool for positive change!",
+      topic:'learning' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Work Style & Personality
+       ============================================================ */
+    { keys:['remote','remote work','work from home','wfh','onsite','on site','hybrid','office','work location','work mode','work preference','relocate','relocation'],
+      reply:"<strong>Work Preference:</strong><br><br>Jarshin is <strong>flexible</strong> — comfortable with remote, hybrid, or onsite work. Based in <strong>Coimbatore, India</strong> and available for:<br>- Remote work worldwide<br>- On-site in Coimbatore/Tamil Nadu<br>- Open to relocation for the right opportunity<br><br>Timezone: IST (UTC+5:30)",
+      topic:'workstyle' },
+
+    { keys:['timezone','time zone','ist','utc','gmt','hours','working hours','availability hours','when available','office hours','schedule','timing','timings','shift'],
+      reply:"<strong>Availability:</strong><br><br>- <strong>Timezone:</strong> IST (UTC+5:30)<br>- Flexible with hours for international collaboration<br>- Quick response time on WhatsApp & email<br>- Available for evening/night syncs with US/EU teams<br><br>Typically responds within <strong>24 hours</strong>!",
+      topic:'workstyle' },
+
+    { keys:['work ethic','work style','how does he work','discipline','consistent','reliable','dependable','punctual','deadline','deadlines','deliver','delivery','commitment','dedicated','dedication'],
+      reply:"<strong>Work Ethic:</strong><br><br>- <strong>Deadline-driven</strong> — Hackathon-tested time management<br>- <strong>Git-disciplined</strong> — Clean commits, feature branching<br>- <strong>Detail-oriented</strong> — Pixel-perfect implementations<br>- <strong>Self-motivated</strong> — Consistently builds & ships side projects<br>- <strong>Collaborative</strong> — Clear communication, open to feedback<br><br>Reliable deliveries, every time!",
+      topic:'workstyle' },
+
+    { keys:['team','team size','team work','team project','group','group project','collaboration','collaborative','pair programming','code review','working together','colleagues','coworkers'],
+      reply:"<strong>Team Experience:</strong><br><br>- <strong>Hackathon teams</strong> — Collaborated under tight deadlines at Electra & SamHita<br>- <strong>Code reviews</strong> — Practices constructive peer review<br>- <strong>Git collaboration</strong> — Feature branching, pull requests, merge management<br>- <strong>Communication</strong> — Clear, proactive, and responsive<br><br>A true team player who elevates everyone around him!",
+      topic:'workstyle' },
+
+    { keys:['language','languages','speak','spoken','english','hindi','tamil','mother tongue','native language','communication language','multilingual'],
+      reply:"<strong>Languages:</strong><br><br>- <strong>English</strong> — Professional proficiency (written & verbal)<br>- <strong>Tamil</strong> — Native language<br>- <strong>Hindi</strong> — Conversational<br><br>Comfortable communicating with international teams!",
+      topic:'about' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Services & Offerings
+       ============================================================ */
+    { keys:['service','services','what can you build','what do you offer','offer','offering','build for me','can you make','can you build','hire for','need developer','need website','website development','web development service','freelance service'],
+      reply:"<strong>Services Jarshin Can Deliver:</strong><br><br>- <strong>Portfolio & Personal Websites</strong><br>- <strong>Business Landing Pages</strong><br>- <strong>Full-Stack Web Applications</strong> (Django)<br>- <strong>REST API Development</strong><br>- <strong>Responsive UI/Frontend</strong> builds<br>- <strong>IoT Dashboard Interfaces</strong><br>- <strong>Password/Security Tools</strong><br><br>Have a project? <a href='https://wa.me/919345511293' target='_blank'>Let's discuss on WhatsApp!</a>",
+      topic:'services' },
+
+    { keys:['price','pricing','cost','rate','rates','charge','charges','how much','budget','fee','fees','quote','quotation','estimate','expensive','cheap','affordable','payment','pay'],
+      reply:"<strong>Pricing:</strong><br><br>Pricing depends on project scope, complexity, and timeline. Jarshin offers competitive rates for:<br>- <strong>Freelance projects</strong><br>- <strong>Hourly consulting</strong><br>- <strong>Fixed-price deliverables</strong><br><br>For a <strong>free quote</strong>, reach out:<br><a href='https://wa.me/919345511293' target='_blank'>WhatsApp</a> | <a href='mailto:jarshin07@gmail.com'>Email</a>",
+      topic:'services' },
+
+    { keys:['timeline','how long','duration','turnaround','delivery time','when done','time to build','how fast','eta','when ready','how many days','how many weeks'],
+      reply:"<strong>Project Timelines:</strong><br><br>- <strong>Landing Page:</strong> 2–5 days<br>- <strong>Portfolio Website:</strong> 1–2 weeks<br>- <strong>Full-Stack Web App:</strong> 2–6 weeks<br>- <strong>API Development:</strong> 1–3 weeks<br><br>Timelines vary with complexity. Let's discuss your project!<br><a href='https://wa.me/919345511293' target='_blank'>WhatsApp</a> | <a href='mailto:jarshin07@gmail.com'>Email</a>",
+      topic:'services' },
+
+    { keys:['salary','ctc','package','compensation','stipend','expected salary','salary expectation','how much do you charge','negotiable','lpa','per month','per hour','hourly rate'],
+      reply:"Salary/pricing is flexible and depends on:<br>- Project scope & complexity<br>- Duration & commitment level<br>- Type (freelance/internship/full-time)<br><br>Jarshin is open to discussing fair compensation. Let's talk!<br><a href='https://wa.me/919345511293' target='_blank'>WhatsApp</a> | <a href='mailto:jarshin07@gmail.com'>Email</a>",
+      topic:'hiring' },
+
+    { keys:['freelance platform','upwork','fiverr','freelancer','toptal','contra','gig','side project','side hustle','moonlight','part time','part-time'],
+      reply:"Jarshin is <strong>available for freelance work</strong>! He takes direct clients for:<br>- Web development projects<br>- Portfolio & landing pages<br>- Django applications<br>- API development<br><br>Direct contact is preferred:<br><a href='https://wa.me/919345511293' target='_blank'>WhatsApp</a> | <a href='mailto:jarshin07@gmail.com'>Email</a>",
+      topic:'hiring' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Industry & Technology Trends
+       ============================================================ */
+    { keys:['trend','trends','latest','modern','new technology','emerging','innovation','tech industry','software industry','it industry','market','demand','popular','trending','hot','buzzword'],
+      reply:"<strong>Tech Trends Jarshin Follows:</strong><br><br>- <strong>AI-Assisted Development</strong> — Leveraging AI tools for productivity<br>- <strong>Edge Computing & IoT</strong> — Smart devices at the network edge<br>- <strong>Serverless & Jamstack</strong> — Modern deployment architectures<br>- <strong>Web Components</strong> — Framework-agnostic UI<br>- <strong>Progressive Web Apps</strong> — App-like web experiences<br><br>Always staying current with the evolving landscape!",
+      topic:'trends' },
+
+    { keys:['artificial intelligence','openai','chatgpt','gpt','gemini','copilot','ai tools','machine learning','ml','deep learning','neural network','nlp','natural language','llm','large language model'],
+      reply:"<strong>AI & Machine Learning:</strong><br><br>While Jarshin's current focus is <strong>full-stack web development</strong>, he's keenly exploring:<br>- AI-assisted coding tools (Copilot, ChatGPT)<br>- NLP concepts (this chatbot uses fuzzy matching!)<br>- Automation workflows combining IoT + AI<br>- ML fundamentals through coursework<br><br>The intersection of AI and IoT is especially exciting!",
+      topic:'trends' },
+
+    { keys:['pwa','progressive web app','service worker','manifest','offline','installable','app like','native app','mobile app','android','ios','flutter','react native','mobile development','cross platform','hybrid app'],
+      reply:"<strong>Mobile & PWA:</strong><br><br>Jarshin builds <strong>mobile-first responsive websites</strong> that work beautifully on any device. Currently exploring:<br>- Progressive Web Apps (PWA)<br>- Service Workers for offline capability<br>- Cross-platform development concepts<br><br>His responsive design skills ensure every project is mobile-ready!",
+      topic:'trends' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Portfolio Details
+       ============================================================ */
+    { keys:['portfolio design','how was this built','tech stack used','stack used','built with','made with','how did you make','tools used','technology used','what technology','which language','which framework'],
+      reply:"<strong>This Portfolio's Tech Stack:</strong><br><br>- <strong>HTML5</strong> — Semantic, accessible markup<br>- <strong>CSS3</strong> — Custom properties, Apple-inspired tokens<br>- <strong>Vanilla JavaScript</strong> — Zero frameworks, pure performance<br>- <strong>Bootstrap 5</strong> — Grid system only<br>- <strong>Web3Forms</strong> — Contact form API<br>- <strong>AI Chatbot</strong> — Custom NLP with Levenshtein distance<br><br>No React, no jQuery — just clean, fast code!",
+      topic:'projects' },
+
+    { keys:['best project','favorite project','proudest','proud','most proud','best work','top project','highlight','standout','showcase'],
+      reply:"<strong>Proudest Work:</strong><br><br><strong>Platter to Purpose</strong> — Because it combines technical skill with social impact. Built at a hackathon, deployed live, and serves a real community need for resource distribution.<br><br><a href='https://platter-to-purpose.onrender.com/' target='_blank'>Live Demo</a> | <a href='https://github.com/JarshinJS/platter_to_purpose' target='_blank'>GitHub</a><br><br>Building tech that helps people is the ultimate motivation!",
+      topic:'projects' },
+
+    { keys:['version','version number','latest version','update','updates','changelog','portfolio version','iteration','release'],
+      reply:"<strong>Portfolio Version:</strong><br><br>This is the latest iteration featuring:<br>- Apple-inspired clean design<br>- AI chatbot with fuzzy matching<br>- Form validation with inline error messages<br>- Scroll animations & progress indicators<br>- Fully responsive mobile experience<br><br>Continuously improved with each iteration!",
+      topic:'projects' },
+
+    { keys:['contribution','contribute','open source contribution','fork','star','github activity','github stats','commit history','streak','contribution graph','active'],
+      reply:"<strong>Open Source Activity:</strong><br><br>Jarshin maintains active repositories on GitHub with consistent commits. All his projects are open-source:<br>- Portfolio website<br>- Password Strength Checker<br>- Platter to Purpose<br><br>Check his contribution graph: <a href='https://github.com/JarshinJS' target='_blank'>github.com/JarshinJS</a>",
+      topic:'projects' },
+
+    { keys:['copy','clone','steal','template','use your','download portfolio','can i use','can i copy','inspired by','credit','open source portfolio'],
+      reply:"The portfolio source code is on GitHub! You can explore it for inspiration:<br><br><a href='https://github.com/JarshinJS' target='_blank'>github.com/JarshinJS</a><br><br>If you'd like Jarshin to <strong>build a custom portfolio for you</strong>, reach out via <a href='https://wa.me/919345511293' target='_blank'>WhatsApp</a>!<br><br>Credit is always appreciated if you use ideas from this site. 🙏",
+      topic:'projects' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — References & Credibility
+       ============================================================ */
+    { keys:['reference','referral','recommendation','testimonial','review','feedback','client','portfolio review','endorsement','rating','reputation'],
+      reply:"Jarshin's work speaks for itself! Check out:<br><br>- <strong>Live deployed projects</strong> on Render & GitHub Pages<br>- <strong>Open source code</strong> on GitHub for code quality review<br>- <strong>Hackathon certifications</strong> validating competitive performance<br><br>For professional references, contact via <a href='mailto:jarshin07@gmail.com'>email</a>.",
+      topic:'hiring' },
+
+    { keys:['compare','comparison','better','better than','versus','vs','differ','difference','competitor','alternative','other developer','other portfolio'],
+      reply:"Every developer brings unique strengths! Jarshin's differentiators:<br><br>- <strong>Full-Stack + IoT</strong> — Rare combination<br>- <strong>Hackathon-proven</strong> — Delivers under pressure<br>- <strong>Clean code culture</strong> — Git-disciplined from day one<br>- <strong>Deployed products</strong> — Not just tutorials, real apps in production<br><br>Want to see the proof? Check his <strong>projects</strong>!",
+      topic:'hiring' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Challenges & Growth
+       ============================================================ */
+    { keys:['challenge','challenges','difficult','difficulty','hard','hardest','toughest','struggle','obstacle','problem faced','biggest challenge','overcome','failure','fail','mistake','lesson','learned'],
+      reply:"<strong>Challenges & Growth:</strong><br><br>Every challenge is a learning opportunity! Key lessons:<br>- <strong>Hackathon time pressure</strong> taught prioritization & MVP thinking<br>- <strong>Debugging deployment issues</strong> deepened DevOps understanding<br>- <strong>Building this chatbot</strong> from scratch improved NLP knowledge<br>- <strong>Responsive design</strong> challenges sharpened cross-browser skills<br><br>Embracing challenges is how Jarshin grows!",
+      topic:'experience' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Mentoring & Teaching
+       ============================================================ */
+    { keys:['mentor','mentorship','teach','teaching','tutor','tutoring','coaching','coach','guidance','learn from you','train','training','workshop','lecture'],
+      reply:"Jarshin is passionate about <strong>knowledge sharing</strong>! While primarily focused on building, he's open to:<br>- Peer programming sessions<br>- Helping beginners with web development fundamentals<br>- Sharing hackathon strategies<br>- Open source collaboration & code reviews<br><br>Reach out via <a href='https://wa.me/919345511293' target='_blank'>WhatsApp</a> to connect!",
+      topic:'about' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Setup & Tools
+       ============================================================ */
+    { keys:['setup','dev setup','workstation','desk','monitor','laptop','computer','pc','mac','keyboard','mouse','hardware setup','equipment'],
+      reply:"<strong>Dev Setup:</strong><br><br>- <strong>Editor:</strong> VS Code with productivity extensions<br>- <strong>Version Control:</strong> Git + GitHub<br>- <strong>Browser:</strong> Chrome DevTools for debugging<br>- <strong>Design:</strong> Clean, minimal workspace<br>- <strong>Workflow:</strong> Keyboard shortcuts + efficient Git aliases<br><br>Jarshin optimizes his setup for maximum productivity!",
+      topic:'about' },
+
+    { keys:['npm','package','packages','library','libraries','module','modules','dependency','dependencies','third party','external','cdn','import'],
+      reply:"<strong>Libraries & Tools:</strong><br><br>Jarshin uses a balanced approach:<br>- <strong>Bootstrap 5</strong> — Responsive grid & components<br>- <strong>Django REST Framework</strong> — API development<br>- <strong>Vanilla JS</strong> — Minimal dependencies for performance<br>- <strong>CDN delivery</strong> — Bootstrap, Google Fonts<br><br>Philosophy: Use libraries wisely, understand fundamentals deeply!",
+      topic:'skills' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Tech Explanations
+       ============================================================ */
+    { keys:['what is html','explain html','html meaning','what is css','explain css','css meaning','what is javascript','explain javascript','what is python','explain python','what is django','explain django','what is iot','explain iot','what is api','explain api'],
+      reply:"Great question! Here's a quick overview:<br><br>- <strong>HTML</strong> — Structure of web pages (the skeleton)<br>- <strong>CSS</strong> — Styling & visual design (the skin)<br>- <strong>JavaScript</strong> — Interactivity & logic (the brain)<br>- <strong>Python</strong> — Versatile programming language<br>- <strong>Django</strong> — Python web framework for rapid development<br>- <strong>IoT</strong> — Connecting physical devices to the internet<br>- <strong>API</strong> — Bridge between different software systems<br><br>Jarshin is proficient in all of these!",
+      topic:'skills' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Location & Regional
+       ============================================================ */
+    { keys:['tamil nadu','tn','south india','indian developer','indian','desi','india developer','india engineer','coimbatore city','kovai'],
+      reply:"<strong>Based in Coimbatore, Tamil Nadu 🇮🇳</strong><br><br>Coimbatore is a major IT hub and educational center in South India. Jarshin studies at <strong>SKCET</strong>, one of the region's top engineering colleges.<br><br>Available for remote work worldwide & open to relocation!",
+      topic:'location' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Fun, Easter Eggs & Personality
+       ============================================================ */
+    { keys:['tell me a fact','fun fact','interesting','random','did you know','trivia','surprise','curious','curiosity'],
+      reply:"<strong>Fun Fact:</strong> This chatbot understands over <strong>350+ keywords</strong>, handles typos using the Levenshtein distance algorithm, and was built entirely without any external API — pure vanilla JavaScript!<br><br>Try misspelling something and watch it still understand you! 🧠",
+      topic:'fun' },
+
+    { keys:['coffee','tea','chai','beverage','drink','food','pizza','biryani','favorite food','snack','energy','fuel'],
+      reply:"Fun question! Every great developer runs on <strong>chai</strong> ☕ and dedication! But seriously — Jarshin's fuel is the excitement of seeing a project come to life.<br><br>Now, want to know about his actual <strong>projects</strong> or <strong>skills</strong>?",
+      topic:'fun' },
+
+    { keys:['favorite','favourite','best','prefer','preference','top','most used','go to','goto'],
+      reply:"<strong>Jarshin's Favorites:</strong><br><br>- <strong>Language:</strong> Python (for backend) & JavaScript (for frontend)<br>- <strong>Framework:</strong> Django<br>- <strong>Editor:</strong> VS Code<br>- <strong>OS:</strong> Windows + Linux<br>- <strong>Design Style:</strong> Apple-inspired minimalism<br>- <strong>Learning Style:</strong> Build-first approach<br><br>Ask about any specific topic!",
+      topic:'fun' },
+
+    { keys:['stupid','dumb','idiot','useless','bad','worst','hate','terrible','horrible','pathetic','rubbish','trash','suck','sucks','lame','boring','ugly','awful'],
+      reply:"I appreciate all feedback! I'm constantly being improved. If I couldn't answer your question, try rephrasing it or ask about:<br><br><strong>Skills</strong> | <strong>Projects</strong> | <strong>Contact</strong> | <strong>Education</strong><br><br>I'm here to help! 😊",
+      topic:'fun' },
+
+    { keys:['are you real','are you human','human or bot','bot or human','real person','talking to','are you alive','sentient','conscious','think','feel','emotion','feelings'],
+      reply:"I'm Jarshin's <strong>AI Assistant</strong> — not human, but pretty smart! 🤖 I was built with vanilla JavaScript, fuzzy matching, and a comprehensive knowledge base about Jarshin's portfolio.<br><br>I can't feel emotions, but I <em>can</em> help you learn everything about Jarshin!",
+      topic:'chatbot' },
+
+    { keys:['secret','easter egg','hidden','surprise me','magic','trick','special','cheat','cheat code','konami'],
+      reply:"🎉 You found a hidden response! Here's a secret: this chatbot can understand your questions even if you misspell <strong>every single word</strong>! Try typing 'wht r jarshins skils' and watch it work!<br><br>Built with 💙 using pure JavaScript. No AI APIs, no frameworks — just clever algorithms!",
+      topic:'fun' },
+
+    { keys:['who built this','who made this','who designed this','who created this','developer of this','made by','built by','designed by','created by','author','creator','owner'],
+      reply:"This entire portfolio — including this AI chatbot — was <strong>designed and built by Jarshin J S</strong>! 🚀<br><br>No templates, no drag-and-drop builders. Hand-coded with HTML, CSS, and vanilla JavaScript.<br><br>Want him to build something for you? <a href='https://wa.me/919345511293' target='_blank'>Let's talk!</a>",
+      topic:'about' },
+
+    /* ============================================================
+       EXPANDED KNOWLEDGE — Conversational & Acknowledgments
+       ============================================================ */
+    { keys:['good morning','gm'],
+      reply:"Good morning! ☀️ Hope you're having a great start to your day! I'm Jarshin's AI assistant — how can I help you today?<br><br>Ask about <strong>skills</strong>, <strong>projects</strong>, or <strong>contact info</strong>!",
+      topic:'greeting' },
+
+    { keys:['good night','sleep','night night','nighty','bedtime'],
+      reply:"Good night! 🌙 Thanks for visiting Jarshin's portfolio. Before you go — feel free to <a href='https://wa.me/919345511293' target='_blank'>save his WhatsApp</a> or <a href='Jarshin_JS.pdf' download>download his resume</a> for later!<br><br>Sweet dreams! 💤",
+      topic:'bye' },
+
+    { keys:['ok','okay','sure','alright','hmm','hmmm','ohh','oh','i see','got it','understood','right','yep','yup','ya','yeah','yes','nope','nah','fine','acha','thik'],
+      reply:"Got it! Feel free to ask me anything about:<br><br>• <strong>Skills & Tech Stack</strong><br>• <strong>Projects & Live Demos</strong><br>• <strong>Education & Credentials</strong><br>• <strong>Contact & Social Links</strong><br>• <strong>Hiring & Collaboration</strong><br><br>I'm here whenever you need info!",
+      topic:'help' },
+
+    { keys:['what','huh','confused','dont understand','unclear','not clear','what do you mean','clarify','wdym','idk'],
+      reply:"No worries! Let me clarify — I can answer questions about Jarshin's:<br><br>• <strong>Technical Skills</strong> — HTML, CSS, JS, Django, IoT<br>• <strong>Projects</strong> — Portfolio, Password Checker, Platter to Purpose<br>• <strong>Education</strong> — B.E. CSE (IoT) at SKCET<br>• <strong>Contact Info</strong> — WhatsApp, Email, LinkedIn<br><br>Just type your question naturally — I even handle typos!",
+      topic:'help' },
+
+    { keys:['how are you','how r u','how you doing','wassup','what\'s up','how is it going','how do you do','how have you been','hru'],
+      reply:"I'm doing great, thanks for asking! 😊 I'm always here and ready to help.<br><br>What would you like to know about Jarshin? Try asking about his <strong>skills</strong>, <strong>projects</strong>, or <strong>experience</strong>!",
+      topic:'greeting' },
+
+    { keys:['what time','current time','date','today','what day'],
+      reply:"I don't track real-time data, but Jarshin is based in <strong>IST (UTC+5:30)</strong>. For real-time communication:<br><br><a href='https://wa.me/919345511293' target='_blank'>WhatsApp</a> — Usually responds within hours!<br><a href='mailto:jarshin07@gmail.com'>Email</a> — Within 24 hours",
+      topic:'contact' },
+
+    { keys:['no','nope','not helpful','wrong','incorrect','that\'s wrong','not what i asked','different','something else','other','change topic','next topic','another','skip'],
+      reply:"Sorry about that! Let me help you better. You can ask about:<br><br>• <strong>Skills</strong> — 'What technologies does Jarshin know?'<br>• <strong>Projects</strong> — 'Show me his projects'<br>• <strong>Contact</strong> — 'How to reach Jarshin?'<br>• <strong>Education</strong> — 'Where does he study?'<br>• <strong>Hiring</strong> — 'Is he available for work?'<br><br>Try being specific, and I'll do my best!",
+      topic:'help' },
+
+    { keys:['repeat','say again','again','come again','pardon','sorry what','once more','rephrase','what did you say','can you repeat'],
+      reply:"No problem! Ask me your question again, and I'll do my best to answer it clearly. I'm great with:<br><br>• Skills & Technologies<br>• Projects & Demos<br>• Contact Information<br>• Education & Credentials<br>• Hiring & Freelance<br><br>Fire away!",
+      topic:'help' },
+
+    { keys:['more jokes','another joke','one more joke','joke2','funny2','tell another','more humor','more fun'],
+      reply:"Here are some developer classics:<br><br>🤓 A SQL query walks into a bar, sees two tables, and asks: <em>'Can I JOIN you?'</em><br><br>💀 Why was the JavaScript developer sad? Because he didn't Node how to Express himself!<br><br>🐛 99 little bugs in the code, 99 little bugs... Take one down, patch it around — 127 little bugs in the code.<br><br>Now, anything about Jarshin's work? 😄",
+      topic:'fun' },
+
+    { keys:['programming language','coding language','which language','language used','languages known','how many languages','other languages','all languages'],
+      reply:"<strong>Programming Languages:</strong><br><br>- <strong>Python</strong> — Primary backend language (Django)<br>- <strong>JavaScript</strong> — Frontend & full-stack scripting<br>- <strong>HTML5/CSS3</strong> — Markup & styling (technically not 'programming' languages!)<br>- <strong>SQL</strong> — Database queries<br>- Exploring: <strong>TypeScript</strong><br><br>Versatile across the full web stack!",
+      topic:'skills' },
+
+    { keys:['linux','ubuntu','windows','os','operating system','terminal','command line','cli','bash','shell','powershell','wsl'],
+      reply:"<strong>Operating Systems:</strong><br><br>- <strong>Windows</strong> — Primary development OS<br>- <strong>Linux</strong> — Familiar with Ubuntu & command line<br>- Terminal/CLI proficiency for Git, Python, and server management<br>- VS Code's integrated terminal for seamless workflow<br><br>Comfortable across platforms!",
+      topic:'skills' },
+
+    { keys:['interview','interview tips','prepare','preparation','technical interview','coding interview','hr interview','aptitude','placement','campus placement','job interview'],
+      reply:"<strong>Interview Readiness:</strong><br><br>Jarshin is well-prepared with:<br>- <strong>DSA practice</strong> through coursework<br>- <strong>Deployed projects</strong> to demonstrate real-world skills<br>- <strong>Hackathon experience</strong> showing team collaboration<br>- <strong>Clean GitHub</strong> for code quality review<br>- Strong communication skills<br><br>Ready for technical and behavioral rounds!",
+      topic:'hiring' },
+
+    { keys:['emoji','emoticon','smiley','icon','fun response','casual','informal'],
+      reply:"Hey! 🎉 I can be fun too!<br><br>🚀 <strong>Skills?</strong> Jarshin's a rocket!<br>💻 <strong>Projects?</strong> All deployed & live!<br>🎓 <strong>Education?</strong> B.E. at top college!<br>📱 <strong>Contact?</strong> One WhatsApp away!<br>🏆 <strong>Hackathons?</strong> Multiple certifications!<br><br>What do you want to explore? 😄",
+      topic:'fun' }
   ];
 
-  var SUGGESTIONS = ['WhatsApp','Email','Skills','Projects','Links','Hire'];
+  var SUGGESTIONS = ['Skills','Projects','Contact','Hire','Resume','Services','Education','Demos'];
 
   /* -- DOM ELEMENTS -- */
   var win    = $('#chatbot-window');
