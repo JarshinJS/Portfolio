@@ -3,7 +3,10 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <title>Jarshin J S — Developer & IoT Innovator</title>
   <meta name="description"
     content="Portfolio of Jarshin J S, a Django full-stack developer and IoT innovator building web applications that bridge physical systems and digital solutions." />
@@ -27,6 +30,32 @@
   <!-- ===== Preloader ===== -->
   <div id="preloader">
     <div class="preloader-spinner"></div>
+  </div>
+
+  <!-- ===== Landing Gate (Name Unlock) ===== -->
+  <div id="landing-gate" class="landing-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-card">
+      <div class="gate-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+        </svg>
+      </div>
+      <h2 id="gate-title" class="gate-title">Welcome to my portfolio</h2>
+      <p class="gate-subtitle">Enter your name to continue</p>
+      <form id="gateForm" class="gate-form" novalidate>
+        <div class="gate-input-wrapper">
+          <input type="text" id="gate-name-input" class="gate-input" placeholder="Your name" required minlength="1" autocomplete="name" aria-label="Your name" autofocus />
+          <span class="gate-error" id="gate-error" role="alert"></span>
+        </div>
+        <button type="submit" class="gate-btn" id="gate-submit-btn">
+          Enter
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+          </svg>
+        </button>
+      </form>
+    </div>
   </div>
 
   <!-- ===== Scroll Progress ===== -->
@@ -57,7 +86,14 @@
     </div>
   </nav>
 
-  <main>
+  <!-- ===== Welcome Banner ===== -->
+  <div id="welcome-banner" class="welcome-banner" role="status" aria-live="polite">
+    <div class="container">
+      <span class="welcome-text" id="welcome-text"></span>
+    </div>
+  </div>
+
+  <main id="main-content">
 
     <!-- ===== Hero ===== -->
     <section id="hero" class="hero" aria-labelledby="hero-title">
@@ -312,6 +348,8 @@
             novalidate>
             <input type="hidden" name="access_key" value="69fc3b47-da3d-41cd-8a67-f2d27015f5a5">
             <input type="hidden" name="subject" value="New Portfolio Enquiry">
+            <!-- Honeypot field for spam protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none !important" tabindex="-1" autocomplete="off">
 
             <div class="form-field">
               <label for="contact-name">Name</label>
@@ -355,7 +393,16 @@
 
   <!-- ===== Footer ===== -->
   <footer class="site-footer">
-    <div class="container">&copy; 2026 Jarshin J S. All Rights Reserved.</div>
+    <div class="container">
+      <p>&copy; 2026 Jarshin J S. All Rights Reserved.</p>
+      <button id="reset-identity-btn" class="reset-identity-btn" type="button" aria-label="Reset identity and clear visitor name">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+          <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+        </svg>
+        Reset Identity
+      </button>
+    </div>
   </footer>
 
   <!-- ===== Chatbot Widget ===== -->

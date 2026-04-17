@@ -13,12 +13,14 @@ const on = (el, ev, fn, opts) => { if (el) el.addEventListener(ev, fn, opts); };
    INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
+  initGate();       // Gate must initialize first
   initReveal();
   initTyping();
   initNavbar();
   initContactForm();
   initScrollProgress();
   initChatbot();
+  initResetIdentity();
 });
 
 /* Preloader */
@@ -30,6 +32,184 @@ on(window, 'load', () => {
     setTimeout(() => pre.remove(), 400);
   }, 200);
 });
+
+/* ============================================================
+   LANDING GATE — Name Unlock System
+   Checks localStorage for "visitorName":
+   - If found → skip gate, show portfolio + welcome banner
+   - If not found → show gate, blur portfolio background
+   ============================================================ */
+function initGate() {
+  const gate      = $('#landing-gate');
+  const gateForm  = $('#gateForm');
+  const gateInput = $('#gate-name-input');
+  const gateError = $('#gate-error');
+  const banner    = $('#welcome-banner');
+  const welcomeEl = $('#welcome-text');
+
+  if (!gate) return;
+
+  const storedName = localStorage.getItem('visitorName');
+
+  /* -- If visitor already identified, skip the gate -- */
+  if (storedName) {
+    gate.classList.add('hidden');
+    gate.style.display = 'none';
+    document.body.classList.remove('gate-active');
+    showWelcome(storedName);
+    return;
+  }
+
+  /* -- First visit: show the gate and blur the background -- */
+  document.body.classList.add('gate-active');
+
+  /* Focus the input after a small delay (allows preloader to clear) */
+  setTimeout(() => {
+    if (gateInput) gateInput.focus();
+  }, 800);
+
+  /* -- Form submission handler -- */
+  if (gateForm) {
+    on(gateForm, 'submit', (e) => {
+      e.preventDefault();
+
+      const name = gateInput ? gateInput.value.trim() : '';
+
+      /* Validate: non-empty name */
+      if (!name) {
+        if (gateInput) {
+          gateInput.classList.add('invalid', 'shake');
+          setTimeout(() => gateInput.classList.remove('shake'), 400);
+        }
+        if (gateError) {
+          gateError.textContent = 'Please enter your name to continue.';
+          gateError.classList.add('visible');
+        }
+        return;
+      }
+
+      /* Clear any previous error */
+      if (gateInput) gateInput.classList.remove('invalid');
+      if (gateError) {
+        gateError.textContent = '';
+        gateError.classList.remove('visible');
+      }
+
+      /* Store the name in localStorage */
+      localStorage.setItem('visitorName', name);
+
+      /* Send visitor name to Gmail via Web3Forms (fire-and-forget) */
+      notifyVisitor(name);
+
+      /* Unlock the portfolio with smooth transition */
+      unlockPortfolio(name);
+    });
+  }
+
+  /* Clear error on input */
+  if (gateInput) {
+    on(gateInput, 'input', () => {
+      gateInput.classList.remove('invalid');
+      if (gateError) {
+        gateError.textContent = '';
+        gateError.classList.remove('visible');
+      }
+    });
+  }
+
+  /**
+   * Send visitor name to Gmail via Web3Forms API
+   * Uses the same access_key as the contact form
+   * Fire-and-forget — doesn't block the unlock flow
+   */
+  function notifyVisitor(name) {
+    const now = new Date();
+    const timestamp = now.toLocaleString('en-IN', {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+      timeZone: 'Asia/Kolkata'
+    });
+
+    const formData = new FormData();
+    formData.append('access_key', '69fc3b47-da3d-41cd-8a67-f2d27015f5a5');
+    formData.append('subject', '🔓 New Portfolio Visitor');
+    formData.append('from_name', 'Portfolio Gate');
+    formData.append('Visitor Name', name);
+    formData.append('Visited At', timestamp);
+    formData.append('Page', window.location.href);
+
+    /* Async fire-and-forget — errors are silently caught */
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    }).catch(() => { /* Silent fail — visitor UX is not affected */ });
+  }
+
+  /**
+   * Unlock animation sequence:
+   * 1. Fade out the gate card
+   * 2. Remove blur from portfolio
+   * 3. Show welcome banner
+   */
+  function unlockPortfolio(name) {
+    /* Step 1: Hide the gate overlay */
+    gate.classList.add('hidden');
+    document.body.classList.remove('gate-active');
+
+    /* Step 2: Remove gate from DOM after transition completes */
+    setTimeout(() => {
+      gate.style.display = 'none';
+    }, 700);
+
+    /* Step 3: Show welcome banner after a brief delay */
+    setTimeout(() => {
+      showWelcome(name);
+    }, 400);
+  }
+
+  /**
+   * Display the welcome banner with the visitor's name
+   */
+  function showWelcome(name) {
+    if (!banner || !welcomeEl) return;
+
+    /* Capitalize first letter of name */
+    const displayName = name.charAt(0).toUpperCase() + name.slice(1);
+    welcomeEl.textContent = `👋 Welcome, ${displayName}! Glad you're here.`;
+
+    /* Trigger the reveal animation */
+    requestAnimationFrame(() => {
+      banner.classList.add('visible');
+    });
+
+    /* Auto-hide after 5 seconds */
+    setTimeout(() => {
+      banner.classList.remove('visible');
+    }, 5000);
+  }
+}
+
+/* ============================================================
+   RESET IDENTITY — clears localStorage and reloads
+   ============================================================ */
+function initResetIdentity() {
+  const resetBtn = $('#reset-identity-btn');
+  if (!resetBtn) return;
+
+  on(resetBtn, 'click', () => {
+    /* Confirm with a brief visual feedback before clearing */
+    localStorage.removeItem('visitorName');
+
+    /* Smooth scroll to top before reload */
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    /* Reload after a brief delay for smooth UX */
+    setTimeout(() => {
+      location.reload();
+    }, 300);
+  });
+}
+
 
 /* ============================================================
    REVEAL ON SCROLL - replaces AOS
